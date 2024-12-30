@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="./static/images/logo/apple-touch-icon.png">
   <link rel="manifest" href="./static/site.webmanifest">
   <link rel="icon" href="./static/images/logo/favicon.ico">
-  <title>VLMs are Blind</title>
+  <title>JoulesEye</title>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRFWN15ZEN"></script>
@@ -52,6 +52,12 @@
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
   <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.7.1/gradio.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
 
   <style>
     ol li {
@@ -1399,8 +1405,9 @@
     }
 
     .table-container {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
     }
 
     .performance-table {
@@ -1467,7 +1474,7 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">
-              Vision language models are blind <i class="fa-solid fa-glasses"></i>
+              JoulesEye: Energy Expenditure Estimation and Respiration Sensing from Thermal Imagery While Exercising
             </h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
@@ -1475,52 +1482,42 @@
                 <span class="author-block">
                   <div class="is-size-5 publication-authors">
                     <span class="author-block">
-                      <a href="https://pooyanrg.me/"> Pooyan Rahmanzadehgervi</a><sup>1,*</sup>,</span>
+                      <a href="https://rishi-a.github.io/"> Risihiraj Adhikary</a><sup>1</sup>,</span>
                     <span class="author-block">
-                      <a href="https://loganbolton.github.io/">Logan Bolton</a><sup>1,*</sup>,</span>
+                      <a href="">Maite Sadeh</a><sup>2</sup>,</span>
                     <span class="author-block">
-                      <a href="https://taesiri.ai">Mohammad Reza Taesiri</a><sup>2</sup>,</span>
+                      <a href="https://nipunbatra.github.io/">Nipun Batra</a><sup>1</sup>,</span>
                     <span class="author-block">
-                      <a href="https://anhnguyen.me/research/">Anh Totti Nguyen</a><sup>1</sup>
+                      <a href="http://www.mayankgoel.com/">Mayank Goel</a><sup>3</sup>
                     </span>
                   </div>
                   <div class="is-size-5 publication-authors">
-                    <span class="author-block"><sup>*</sup>Equal contribution</span>
+                    <span class="author-block"><sup>1</sup>IIT Gandhinagar,</span>
+                    <span class="author-block"><sup>2</sup>Cornell University,</span>
+                    <span class="author-block"><sup>3</sup>Carneige Mellon University,</span>
                   </div>
                   <div class="is-size-5 publication-authors">
-                    <span class="author-block"><sup>1</sup>Auburn University,</span>
-                    <span class="author-block"><sup>2</sup>University of Alberta,</span>
-                  </div>
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block">17th Asian Conference on Computer Vision (ACCV 2024)
-                  </div>
-                  <div>
-                    <span class="author-block"><strong>Accepted for Oral Presentation</strong>
-                    </span>
+                    <span class="author-block">Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technology (ACM-IMWUT 2024)</span>
                   </div>
                 </span>
 
 
-            </div>
-            <div class="is-size-5 publication-authors">
-            </div>
-            <div class="is-size-5 publication-authors">
             </div>
 
             <div class="column has-text-centered">
               <div class="publication-links">
                 <!-- PDF Link. -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/2407.06581" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://dl.acm.org/doi/10.1145/3631422" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                     </span>
-                    <span>Paper (ArXiv)</span>
+                    <span>Paper (ACM-DL)</span>
                   </a>
                 </span>
                 <!-- Code Link. -->
                 <span class="link-block">
-                  <a href="https://github.com/anguyen8/vision-llms-are-blind"
+                  <a href="https://github.com/rishi-a/JoulesEye-Release"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -1530,7 +1527,7 @@
                 </span>
                 <!-- Dataset Link. -->
                 <span class="link-block">
-                  <a href="https://huggingface.co/datasets/XAI/vlmsareblind" target="_blank"
+                  <a href="" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <p style="font-size:20px">🤗</p>
@@ -1556,25 +1553,16 @@
           <div class="content has-text-justified">
 
             <p>
-              While large language models with vision capabilities (VLMs), e.g., <span class="model">GPT-<span
-                  class="gpt-green">4o</span></span> and <span class="model">Gemini-<span class="gemini-blue">1.5</span>
-                Pro</span>,
-              are powering various image-text applications and scoring high on many vision-understanding benchmarks, we
-              find that
-              they are surprisingly still struggling with low-level vision tasks that are easy to humans.
-              Specifically, on <span class="model">Blind<span class="blindtest-purple">Test</span></span>, our suite of
-              7 very
-              simple tasks such as identifying (a) whether two circles overlap; (b) whether two lines intersect; (c)
-              which letter is
-              being circled in a word; and (d) counting circles in an Olympic-like logo, four state-of-the-art VLMs are
-              only 58.57%
-              accurate on average.
-              <span class="model">Sonnet-<span class="sonnet35-brown">3.5</span></span> performs the best at 74.01%
-              accuracy, but
-              this is still far from the human expected accuracy of 100%.
-              Across different image resolutions and line widths, VLMs consistently struggle with tasks that require
-              precise spatial
-              information and recognizing geometric primitives that overlap or are close together.
+                Smartphones and smartwatches have contributed significantly to fitness monitoring by providing real-time statistics, 
+                thanks to accurate tracking of physiological indices such as heart rate. However, the estimation of calories burned 
+                during exercise is inaccurate and cannot be used for medical diagnosis. In this work, we present JoulesEye, 
+                a smartphone thermal camera-based system that can accurately estimate calorie burn by monitoring respiration rate. 
+                We evaluated JoulesEye on 54 participants who performed high intensity cycling and running. 
+                The mean absolute percentage error (MAPE) of JoulesEye was 5.8%, which is significantly better than the MAPE of 
+                37.6% observed with commercial smartwatch-based methods that only use heart rate. Finally, we show that an 
+                ultra-low-resolution thermal camera that is small enough to fit inside a watch or other wearables is sufficient 
+                for accurate calorie burn estimation. These results suggest that JoulesEye is a promising new method for accurate 
+                and reliable calorie burn estimation.
             </p>
 
           </div>
@@ -1585,637 +1573,38 @@
 
 
   <hr>
-  <section class="section">
-    <div class="container">
-      <div class="content-wrapper">
-        <h2 class="title is-3 has-text-centered">Overview of All Tasks</h2>
-        <div class="table-container">
-          <table class="performance-table results-table">
-            <thead>
-              <tr>
-                <th>Model</th>
-                <th>
-                  <div class="task-icon-container"><img src="static/images/logo/two_lines.svg" alt="Line Intersect"
-                      class="task-icon-small"></div>
-                </th>
-                <th>
-                  <div class="task-icon-container"><img src="static/images/logo/two-colored-circles-svg.svg"
-                      alt="Two Circles" class="task-icon-small"></div>
-                </th>
-                <th>
-                  <div class="task-icon-container"><img src="static/images/logo/acknowledgement-svg.svg"
-                      alt="Circled Letter" class="task-icon-small"></div>
-                </th>
-                <th>
-                  <div class="task-icon-container"><img src="static/images/logo/three-circles-svg.svg"
-                      alt="Olympic Rings" class="task-icon-small"></div>
-                </th>
-                <th>
-                  <div class="task-icon-container"><img src="static/images/logo/overlapping-pentagons-svg.svg"
-                      alt="Pentagon" class="task-icon-small"></div>
-                </th>
-                <th>
-                  <div class="task-icon-container"><img src="static/images/logo/nested-squares-svg.svg"
-                      alt="Nested Squares" class="task-icon-small"></div>
-                </th>
-                <th>
-                  <div class="task-icon-container"><img src="static/images/logo/grid-3x4-svg.svg" alt="Grid"
-                      class="task-icon-small">
-                  </div>
-                </th>
-                <th>
-                  <div class="task-icon-container"><img src="static/images/logo/subway-map-svg.svg" alt="Path Following"
-                      class="task-icon-small"></div>
-                </th>
-                <th style="font-weight: bold; text-align: center;">Mean</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Random</td>
-                <td class="rnumber">33.33</td>
-                <td class="rnumber">50.00</td>
-                <td class="rnumber">5.77</td>
-                <td class="rnumber">20.00</td>
-                <td class="rnumber">20.00</td>
-                <td class="rnumber">25.00</td>
-                <td class="rnumber">4.55</td>
-                <td class="rnumber">33.33</td>
-                <td class="rnumber">24.00</td>
-              </tr>
-              <tr>
-                <td><img src="static/images/chatgpt-icon.svg" alt="GPT-4o" class="model-logo-small"></td>
-                <td class="rnumber">41.61</td>
-                <td class="rnumber">72.67</td>
-                <td class="rnumber">70.18</td>
-                <td class="rnumber">42.50</td>
-                <td class="rnumber">17.50</td>
-                <td class="rnumber">55.83</td>
-                <td class="rnumber">39.58</td>
-                <td class="rnumber">47.89</td>
-                <td class="rnumber">48.47</td>
-              </tr>
-              <tr>
-                <td><img src="static/images/google-gemini-icon.svg" alt="Gemini-1.5" class="model-logo-small"></td>
-                <td class="rnumber">66.94</td>
-                <td class="highlight rnumber">92.78</td>
-                <td class="highlight rnumber">92.81</td>
-                <td class="highlight rnumber">87.08</td>
-                <td class="rnumber">19.37</td>
-                <td class="rnumber">80.00</td>
-                <td class="rnumber">39.39</td>
-                <td class="rnumber">41.60</td>
-                <td class="rnumber">65.00</td>
-              </tr>
-              <tr>
-                <td><img src="static/images/claude-ai-icon.svg" alt="Sonnet-3" class="model-logo-small"></td>
-                <td class="rnumber">43.41</td>
-                <td class="rnumber">84.52</td>
-                <td class="rnumber">73.34</td>
-                <td class="rnumber">31.66</td>
-                <td class="rnumber">9.79</td>
-                <td class="rnumber">65.00</td>
-                <td class="rnumber">36.17</td>
-                <td class="rnumber">23.24</td>
-                <td class="rnumber">45.89</td>
-              </tr>
-              <tr>
-                <td><img src="static/images/claude-35.png" alt="Sonnet-3.5" class="model-logo-small"></td>
-                <td class="highlight rnumber">75.36</td>
-                <td class="rnumber">91.66</td>
-                <td class="rnumber">89.22</td>
-                <td class="rnumber">44.16</td>
-                <td class="highlight rnumber">77.29</td>
-                <td class="highlight rnumber">92.08</td>
-                <td class="highlight rnumber">74.26</td>
-                <td class="highlight rnumber">55.53</td>
-                <td class="highlight rnumber">74.94</td>
-              </tr>
-              <tr>
-                <td><strong>Mean</strong></td>
-                <td class="rnumber">56.84</td>
-                <td class="rnumber">85.41</td>
-                <td class="rnumber">81.39</td>
-                <td class="rnumber">51.35</td>
-                <td class="rnumber">30.99</td>
-                <td class="rnumber">73.29</td>
-                <td class="rnumber">47.35</td>
-                <td class="rnumber">42.06</td>
-                <td class="highlight rnumber">58.57</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <figcaption>Accuracy (%) of each model over 7 tasks. The mean accuracy over all four models is 58.57%,
-          substantially
-          better than random chance (24%), which is computed considering each task as a single-label, N-way
-          classification
-          problem. <span class="model">Sonnet-<span class="sonnet35-brown">3.5</span></span> is the best (74.94%
-          accuracy)
-          but still far from the 100% expected accuracy.</figcaption>
-      </div>
-  </section>
-
-
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <!-- Abstract. -->
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
-          <div class="content has-text-justified">
-
-            <p>
-              While large language models with vision capabilities (VLMs), e.g., <span class="model">GPT-<span
-                  class="gpt-green">4o</span></span> and <span class="model">Gemini-<span class="gemini-blue">1.5</span>
-                Pro</span>,
-              are powering various image-text applications and scoring high on many vision-understanding benchmarks, we
-              find that
-              they are surprisingly still struggling with low-level vision tasks that are easy to humans.
-              Specifically, on <span class="model">Blind<span class="blindtest-purple">Test</span></span>, our suite of
-              7 very
-              simple tasks such as identifying (a) whether two circles overlap; (b) whether two lines intersect; (c)
-              which letter is
-              being circled in a word; and (d) counting circles in an Olympic-like logo, four state-of-the-art VLMs are
-              only 58.57%
-              accurate on average.
-              <span class="model">Sonnet-<span class="sonnet35-brown">3.5</span></span> performs the best at 74.01%
-              accuracy, but
-              this is still far from the human expected accuracy of 100%.
-              Across different image resolutions and line widths, VLMs consistently struggle with tasks that require
-              precise spatial
-              information and recognizing geometric primitives that overlap or are close together.
-            </p>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <hr>
-  <section class="section">
-    <div class="container">
-      <div class="content-wrapper">
-        <h2 class="title is-3 has-text-centered">Overview of All Tasks</h2>
-        <div class="table-container">
-          <table class="performance-table results-table">
-            <thead>
-              <tr>
-                <th>Model</th>
-                <th>
-                  <div class="task-icon-container"><img src="static/images/logo/two_lines.svg" alt="Line Intersect"
-                      class="task-icon-small"></div>
-                </th>
-                <th>
-                  <div class="task-icon-container"><img src="static/images/logo/two-colored-circles-svg.svg"
-                      alt="Two Circles" class="task-icon-small"></div>
-                </th>
-                <th>
-                  <div class="task-icon-container"><img src="static/images/logo/acknowledgement-svg.svg"
-                      alt="Circled Letter" class="task-icon-small"></div>
-                </th>
-                <th>
-                  <div class="task-icon-container"><img src="static/images/logo/three-circles-svg.svg"
-                      alt="Olympic Rings" class="task-icon-small"></div>
-                </th>
-                <th>
-                  <div class="task-icon-container"><img src="static/images/logo/overlapping-pentagons-svg.svg"
-                      alt="Pentagon" class="task-icon-small"></div>
-                </th>
-                <th>
-                  <div class="task-icon-container"><img src="static/images/logo/nested-squares-svg.svg"
-                      alt="Nested Squares" class="task-icon-small"></div>
-                </th>
-                <th>
-                  <div class="task-icon-container"><img src="static/images/logo/grid-3x4-svg.svg" alt="Grid"
-                      class="task-icon-small">
-                  </div>
-                </th>
-                <th>
-                  <div class="task-icon-container"><img src="static/images/logo/subway-map-svg.svg" alt="Path Following"
-                      class="task-icon-small"></div>
-                </th>
-                <th style="font-weight: bold; text-align: center;">Mean</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Random</td>
-                <td class="rnumber">33.33</td>
-                <td class="rnumber">50.00</td>
-                <td class="rnumber">5.77</td>
-                <td class="rnumber">20.00</td>
-                <td class="rnumber">20.00</td>
-                <td class="rnumber">25.00</td>
-                <td class="rnumber">4.55</td>
-                <td class="rnumber">33.33</td>
-                <td class="rnumber">24.00</td>
-              </tr>
-              <tr>
-                <td><img src="static/images/chatgpt-icon.svg" alt="GPT-4o" class="model-logo-small"></td>
-                <td class="rnumber">41.61</td>
-                <td class="rnumber">72.67</td>
-                <td class="rnumber">70.18</td>
-                <td class="rnumber">42.50</td>
-                <td class="rnumber">17.50</td>
-                <td class="rnumber">55.83</td>
-                <td class="rnumber">39.58</td>
-                <td class="rnumber">47.89</td>
-                <td class="rnumber">48.47</td>
-              </tr>
-              <tr>
-                <td><img src="static/images/google-gemini-icon.svg" alt="Gemini-1.5" class="model-logo-small"></td>
-                <td class="rnumber">66.94</td>
-                <td class="highlight rnumber">92.78</td>
-                <td class="highlight rnumber">92.81</td>
-                <td class="highlight rnumber">87.08</td>
-                <td class="rnumber">19.37</td>
-                <td class="rnumber">80.00</td>
-                <td class="rnumber">39.39</td>
-                <td class="rnumber">41.60</td>
-                <td class="rnumber">65.00</td>
-              </tr>
-              <tr>
-                <td><img src="static/images/claude-ai-icon.svg" alt="Sonnet-3" class="model-logo-small"></td>
-                <td class="rnumber">43.41</td>
-                <td class="rnumber">84.52</td>
-                <td class="rnumber">73.34</td>
-                <td class="rnumber">31.66</td>
-                <td class="rnumber">9.79</td>
-                <td class="rnumber">65.00</td>
-                <td class="rnumber">36.17</td>
-                <td class="rnumber">23.24</td>
-                <td class="rnumber">45.89</td>
-              </tr>
-              <tr>
-                <td><img src="static/images/claude-35.png" alt="Sonnet-3.5" class="model-logo-small"></td>
-                <td class="highlight rnumber">75.36</td>
-                <td class="rnumber">91.66</td>
-                <td class="rnumber">89.22</td>
-                <td class="rnumber">44.16</td>
-                <td class="highlight rnumber">77.29</td>
-                <td class="highlight rnumber">92.08</td>
-                <td class="highlight rnumber">74.26</td>
-                <td class="highlight rnumber">55.53</td>
-                <td class="highlight rnumber">74.94</td>
-              </tr>
-              <tr>
-                <td><strong>Mean</strong></td>
-                <td class="rnumber">56.84</td>
-                <td class="rnumber">85.41</td>
-                <td class="rnumber">81.39</td>
-                <td class="rnumber">51.35</td>
-                <td class="rnumber">30.99</td>
-                <td class="rnumber">73.29</td>
-                <td class="rnumber">47.35</td>
-                <td class="rnumber">42.06</td>
-                <td class="highlight rnumber">58.57</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <figcaption>Accuracy (%) of each model over 7 tasks. The mean accuracy over all four models is 58.57%,
-          substantially
-          better than random chance (24%), which is computed considering each task as a single-label, N-way
-          classification
-          problem. <span class="model">Sonnet-<span class="sonnet35-brown">3.5</span></span> is the best (74.94%
-          accuracy)
-          but still far from the 100% expected accuracy.</figcaption>
-      </div>
-  </section>
-
-
-
-  <section class="section">
-    <div class="container">
-      <div class="task-grid">
-        <a href="#task1" class="task-box">
-          <img src="static/images/logo/two_lines.svg" alt="Task 1 Icon" class="task-icon">
-          <span class="task-number">Task 1</span>
-          <span class="task-description">Line Intersections</span>
-        </a>
-        <a href="#task2" class="task-box">
-          <img src="static/images/logo/two-colored-circles-svg.svg" alt="Task 2 Icon" class="task-icon">
-          <span class="task-number">Task 2</span>
-          <span class="task-description">Two Circles</span>
-        </a>
-        <a href="#task3" class="task-box">
-          <img src="static/images/logo/acknowledgement-svg.svg" alt="Task 3 Icon" class="task-icon">
-          <span class="task-number">Task 3</span>
-          <span class="task-description">Circled Letter</span>
-        </a>
-        <a href="#task4" class="task-box">
-          <img src="static/images/logo/olympic-rings-svg.svg" alt="Task 4 Icon" class="task-icon">
-          <span class="task-number">Task 4</span>
-          <span class="task-description">Overlapping Shapes</span>
-        </a>
-        <a href="#task5" class="task-box">
-          <img src="static/images/logo/nested-squares-svg.svg" alt="Task 5 Icon" class="task-icon">
-          <span class="task-number">Task 5</span>
-          <span class="task-description">Nested Squares</span>
-        </a>
-        <a href="#task6" class="task-box">
-          <img src="static/images/logo/grid-3x4-svg.svg" alt="Task 6 Icon" class="task-icon">
-          <span class="task-number">Task 6</span>
-          <span class="task-description">Counting Grid</span>
-        </a>
-        <a href="#task7" class="task-box">
-          <img src="static/images/logo/subway-map-svg.svg" alt="Task 7 Icon" class="task-icon">
-          <span class="task-number">Task 7</span>
-          <span class="task-description">Subway Map</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  </section>
-
-
-
-
-
 
 
   <!-- TASK 1 Begins -->
   <section id="task1" class="section">
     <div class="container is-max-desktop">
-      <h2 class="title is-2">Task 1: Counting line intersections <img src="static/images/logo/two_lines.svg"
-          alt="Two intersecting lines" class="task-icon"></h2>
+      <h2 class="title is-2">Main Idea </h2>
 
-      <div class="content">
+      <div class="content has-text-justified">
         <p>
-          Given the impressive accuracy of VLMs on answering questions on diagrams and charts (e.g., <span
-            class="model">Sonnet-<span class="sonnet35-brown">3.5</span></span> scoring 94.7% on AI2D and 90.8% on
-          ChartQA) <a href="https://arxiv.org/abs/2203.10244">[1]</a>, a reasonable hypothesis is that VLMs must be able
-          to see whether two graphs
-          intersect in a
-          chart. Here, we test this hypothesis by asking VLMs to count the number of intersections between two 2-segment
-          piece-wise linear functions.
+            We used a thermal camera attachment for phones to accurately estimate EE (Figure 1). Breathing causes change
+            in temperature in the nostrils which results in variations in pixel intensity. We used classical region tracking
+            approach like Channel and Spatial Reliability Filter <a href="https://arxiv.org/abs/1611.08461">[14]</a> to retrieve the pixel intensity in the nostrils. The intensity
+            information over time gives us the proxy of the breathing signal. We also used temperature and heart rate data
+            to improve the results. To extract temperature, we monitored multiple points on the forehead. The forehead
+            is an area of bony prominence where the probability of observing the change in temperature due to workout
+            is high <a href="https://pubmed.ncbi.nlm.nih.gov/24961292/">[11]</a>. While prior work has estimated respiration rate using thermal images [<a href="https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/iet-cds.2016.0143">2</a>, <a href="https://ieeexplore.ieee.org/document/6868223">6</a>], experiments have
+            not been performed when the participants move exaggeratedly while exercising. Motion is also a challenge for
+            wireless signals-based respiration monitoring as removing motion artifacts has been a longstanding challenge. Our
+            algorithms work even when the user is cycling or running vigorously. The sensed respiration rate, temperature
+            and heart rate information from thermal data are fed into a deep learning model to estimate energy expenditure.
         </p>
 
-        <h3 class="title is-4">Images</h3>
-        <p>
-          We create 1800 images of 2D line plots drawn on a white canvas. Each line plot consists of two
-          line segments, defined by three points whose x-coordinates are fixed and equally spaced. The y-coordinates are
-          randomly sampled to create two plots that intersect at exactly 0, 1 or 2 points. See Appendix A for more
-          details.
-        </p>
+        <figure class="image-container">
+            <img src="./static/images/JoulesEye Figures/JouleEye Overview.PNG"
+              alt="JoulesEye Overview">
+            <figcaption> Fig. 1. JoulesEye estimates Energy Expenditure (EE) from respiration rate. In a) the participant is riding a cycle with thermal
+                camera and phone fixed on the handrail. b) Shows a frame of the thermal video. c) Shows the respiration rate detection
+                pipeline during motion combined with deep learning architecture to predict energy expenditure.</figcaption>
+        </figure>
 
-        <div class="columns is-multiline is-mobile">
-          <div class="column is-3">
-            <figure class="image-container">
-              <img src="./static/images/LinePlots/final_examples/gt_0_image_8_thickness_2_resolution_1152.svg"
-                alt="2D line plot example 1">
-              <figcaption>0 intersections</figcaption>
-            </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image-container">
-              <img src="./static/images/LinePlots/final_examples/gt_1_image_20_thickness_2_resolution_1152.svg"
-                alt="2D line plot example 2">
-              <figcaption>1 intersection</figcaption>
-            </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image-container">
-              <img src="./static/images/LinePlots/final_examples/gt_1_image_15_thickness_4_resolution_1152.svg"
-                alt="2D line plot example 3">
-              <figcaption>1 intersection</figcaption>
-            </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image-container">
-              <img src="./static/images/LinePlots/final_examples/gt_2_image_51_thickness_4_resolution_1152.svg"
-                alt="2D line plot example 4">
-              <figcaption>2 intersections</figcaption>
-            </figure>
-          </div>
-        </div>
-        <figcaption>Fig. 1: Examples of 2D line plots used in the task, showing different numbers of intersections.
-        </figcaption>
-
-        <h3 class="title is-4">Prompts</h3>
-        <div class="content">
-          <p>
-            We ask each question using two different wordings:
-          </p>
-          <ol>
-            <li><em>"How many times do the blue and red lines touch each other? Answer with a number in curly brackets,
-                e.g.,
-                {5}."</em></li>
-            <li><em>"Count the intersection points where the blue and red lines meet. Put your answer in curly brackets,
-                e.g.,
-                {2}."</em></li>
-          </ol>
-
-          <h3 class="title is-4">Groundtruth</h3>
-          <div class="content">
-            <p>
-              Answers are ∈ {0, 1, 2} (random-baseline accuracy: 33%).
-            </p>
-          </div>
-
-          <h2 class="title is-3">Results</h2>
-          <p class="mb-4">
-            The following table shows the performance of the four models on the task of counting line intersections.
-          </p>
-
-          <table class="performance-table results-table">
-            <tr>
-              <th>Line width</th>
-              <th>
-                <div class="model-header">
-                  <span class="model">GPT-<span class="gpt-green">4o</span></span>
-                </div>
-              </th>
-              <th>
-                <div class="model-header">
-                  <span class="model">Gemini-<span class="gemini-blue">1.5</span> Pro</span>
-                </div>
-              </th>
-              <th>
-                <div class="model-header">
-                  <span class="model">Sonnet-<span class="sonnet3-brown">3</span></span>
-                </div>
-              </th>
-              <th>
-                <div class="model-header">
-                  <span class="model">Sonnet-<span class="sonnet35-brown">3.5</span></span>
-                </div>
-              </th>
-            </tr>
-            <tr>
-              <td>0.005 × C</td>
-              <td class="rnumber">45.00</td>
-              <td class="rnumber">67.55</td>
-              <td class="rnumber">45.22</td>
-              <td class="rnumber">75.83</td>
-            </tr>
-            <tr>
-              <td>0.01 × C</td>
-              <td class="rnumber">38.22</td>
-              <td class="rnumber">66.33</td>
-              <td class="rnumber">41.61</td>
-              <td class="rnumber">74.88</td>
-            </tr>
-            <tr>
-              <td><strong>Mean</strong></td>
-              <td class="rnumber">41.61</td>
-              <td class="rnumber">66.94</td>
-              <td class="rnumber">43.41</td>
-              <td class="rnumber highlight">75.36</td>
-            </tr>
-          </table>
-
-        </div>
       </div>
-      <div>
-        <h2 class="title is-3">Qualitative samples</h2>
-        <div class="container is-max-desktop">
-          <div class="frame">
-            <div class="header">
-              <h2>How many times do the blue and red lines intersect?</h2>
-            </div>
-            <table class="result-table">
-              <tr>
-                <th></th>
-                <th><img src="static/images/LinePlots/final_examples/gt_0_image_94_thickness_2_resolution_1152.svg"
-                    alt="Graph 1">
-                </th>
-                <th><img src="static/images/LinePlots/final_examples/gt_0_image_122_thickness_2_resolution_384.svg"
-                    alt="Graph 2">
-                </th>
-                <th><img src="static/images/LinePlots/final_examples/gt_1_image_108_thickness_4_resolution_768.svg"
-                    alt="Graph 3">
-                </th>
-                <th><img src="static/images/LinePlots/final_examples/gt_1_image_123_thickness_4_resolution_384.svg"
-                    alt="Graph 4">
-                </th>
-                <th><img src="static/images/LinePlots/final_examples/gt_2_image_262_thickness_4_resolution_1152.svg"
-                    alt="Graph 5">
-                </th>
-                <th><img src="static/images/LinePlots/final_examples/gt_2_image_244_thickness_4_resolution_1152.svg"
-                    alt="Graph 6">
-                </th>
-              </tr>
-              <tr class="light-gray">
-                <th style="text-align: center; vertical-align: middle;"><img src="static/images/chatgpt-icon.svg"
-                    class="model-logo" alt="GPT-4o"></th>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">1</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">0</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">2</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">2</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">4</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">1</span><span
-                    class="cross">✗</span>
-                </td>
-              </tr>
-              <tr>
-                <td style="text-align: center; vertical-align: middle;"><img src="static/images/google-gemini-icon.svg"
-                    class="model-logo" alt="Gemini-1.5"></td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">1</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">1</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">1</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">2</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">1</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">1</span><span
-                    class="cross">✗</span>
-                </td>
-              </tr>
-              <tr class="light-gray">
-                <th style="text-align: center; vertical-align: middle;"><img src="static/images/claude-ai-icon.svg"
-                    class="model-logo" alt="Sonnet-3"></th>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">4</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">1</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">2</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">1</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">4</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">1</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">1</span><span
-                    class="cross">✗</span>
-                </td>
-              </tr>
-              <tr>
-                <td style="text-align: center; vertical-align: middle;"><img src="static/images/claude-35.png"
-                    class="model-logo" alt="Sonnet-3.5"></td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">1</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">0</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">2</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">1</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">3</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">2</span><span
-                    class="check">✓</span>
-                </td>
-              </tr>
-            </table>
-            <div class="legend">
-              <div class="legend-item">
-                <img src="static/images/chatgpt-icon.svg" alt="GPT-4o"> <span class="model">GPT-<span
-                    class="gpt-green">4o</span></span>
-              </div>
-              <div class="legend-item">
-                <img src="static/images/google-gemini-icon.svg" alt="Gemini-1.5"> <span class="model">Gemini-<span
-                    class="gemini-blue">1.5</span>
-                  Pro</span>
-              </div>
-              <div class="legend-item">
-                <img src="static/images/claude-ai-icon.svg" alt="Sonnet-3"> <span class="model">Sonnet-<span
-                    class="sonnet3-brown">3</span></span>
-              </div>
-              <div class="legend-item">
-                <img src="static/images/claude-35.png" alt="Sonnet-3"> <span class="model">Sonnet-<span
-                    class="sonnet35-brown">3.5</span></span>
-              </div>
-
-            </div>
-          </div>
-          <figcaption>Fig. 2: VLMs cannot reliably count the intersections.</figcaption>
-        </div>
+    </div>
   </section>
   <!-- TASK 1 Ends -->
 
@@ -2224,294 +1613,83 @@
   <section id="task2" class="section">
     <div class="container is-max-desktop">
 
-      <h2 class="title is-2">Task 2: Two circles <img src="static/images/logo/two-colored-circles-svg.svg"
-          alt="Two intersecting lines" class="task-icon"></h2>
+      <h2 class="title is-2">JoulesEye Setup</h2>
 
 
 
-      <div class="content">
+      <div class="content has-text-justified">
         <p>
-          In contrast to Task 1 where we tested VLMs on thin lines, here we evaluate their ability to perceive
-          interactions
-          between larger objects - specifically, two same-sized filled circles. This task assesses VLMs' capability to
-          detect
-          (1) small gaps between circles and (2) overlapping circles.
+            Our goal is to determine how many calories a person has burned while exercising by measuring the respiration
+            rate. The breathing or respiratory rate is detected as a result of the temperature fluctuations due to airflow in
+            the nasal. The physical phenomenon is based on the radiative and convective heat transfer component during
+            the breathing cycle, which results in a periodic increase and decrease of the temperature at the tissues around
+            the nasal cavity. These observable temperature fluctuations are quantifiable in a thermal video as pixel intensity
+            variations of the nostrils ROI <a href="https://ieeexplore.ieee.org/document/9091089">[16]</a>. In this section, we first describe the setup of our system and then the algorithm for obtaining
+            the temperature and respiration rate. The setup is divided into two major category of systems: Ground Truth Devices and JoulesEye System.
         </p>
 
-        <h3 class="title is-4">Images</h3>
+        <h3 class="title is-3">Ground Truth Devices</h3>
         <p>
-          We generate 672 images of two circles on a white canvas. The circles vary in size, distance, and orientation:
+            First, we discuss the components used for collected ground truth data followed by other components used in the
+            design of JoulesEye.
         </p>
+        <h4 class="title is-4">Indirect Calorimeter</h4>
+
+        <p>
+            We have used the Fitmate Pro <a href="https://www.cosmed.com/en/products/cardio-pulmonary-exercise-test/fitmate-pro">[18]</a> which is an indirect calorimeter used to collect VO<sub>2</sub> (volume of oxygen) data during sub-maximal
+            as well as maximal exercise by measuring the volume of oxygen consumed and the volume of carbon dioxide
+            produced. Submaximal exercise is performed at a level below the maximum capacity of an individual. During
+            physical assessment, only sub-maximal exercises should be performed by participants in the absence of a clinical
+            physician <a href="https://www.ahajournals.org/doi/full/10.1161/CIR.0b013e31829b5b44">[8]</a> The main components of the Fitmate Pro are:
+        </p>
+
         <ul>
-          <li>Circle diameters: 1/4, 1/5, 1/6, or 1/7 of the canvas size</li>
-          <li>Distances between circle perimeters: -0.15 to 0.5 times the diameter</li>
-          <li>Orientations: 90°, 0°, -45°, and 45° angles with the x-axis</li>
-          <li>Canvas sizes: 384, 769, and 1155 pixels</li>
+          <li>Oxygen Sensor: Measures the oxygen consumption and the carbon dioxide expulsion from the body. The
+            concentration of oxygen and carbon dioxide is directly proportional to the energy expenditure.</li>
+          <li>Flow Sensor: Measures the volume of air breathed in and out by the user.</li>
+          <li>Microprocessor Unit: Analyzes the data from the sensors and calculates the energy expenditure based on
+            proprietary algorithms.</li>
+          <li>Display Screen: It is shown in Figure 2(d). It displays the results of the energy expenditure calculation,
+            including the number of calories burned, in real-time.</li>
+          <li>Mouthpiece or Mask: Attaches to the face and connects to the calorimeter, allowing the measurement of
+            inhaled and exhaled air.</li>
         </ul>
 
-        <div class="columns is-multiline is-mobile">
-          <div class="column is-3">
-            <figure class="image">
-              <img
-                src="./static/images/TwoTouchingCircles/color_coded/pixels_384_rotation_vertical_diameter_0.14_distance_-0.15.svg"
-                alt="Overlapping circles">
-              <figcaption>Overlapping and touching</figcaption>
-            </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image">
-              <img
-                src="./static/images/TwoTouchingCircles/color_coded/pixels_769_rotation_vertical_diameter_0.2_distance_0.0.svg"
-                alt="Touching circles">
-              <figcaption>Non-overlapping but touching</figcaption>
-            </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image">
-              <img
-                src="./static/images/TwoTouchingCircles/color_coded/pixels_1155_rotation_vertical_diameter_0.25_distance_0.15.svg"
-                alt="Separated circles">
-              <figcaption>Non-overlapping and non-touching</figcaption>
-            </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image">
-              <img
-                src="./static/images/TwoTouchingCircles/color_coded/pixels_1155_rotation_diagonal_1_diameter_0.25_distance_0.35.svg"
-                alt="Diagonal orientation">
-              <figcaption>Different orientation</figcaption>
-            </figure>
-          </div>
-        </div>
-        <figcaption>Fig. 3: Examples of two-circle images used in the task, showing different configurations.
-        </figcaption>
-      </div>
+        <h4 class="title is-4">Respiration Belt</h4>
 
-      <h3 class="title is-4">Prompts</h3>
-      <div class="content">
-        <p>
-          We ask each question using two different wordings:
+        <p> The ground truth of respiration rate is available from the indirect calorimeter. We also
+            collect the respiration rate, using the Vernier GoDirect <a href="https://www.vernier.com/product/go-direct-respiration-belt/">[7]</a> respiration belt (Figure 2(e)). We collected res
+           piration rate from two sources because it is impossible to use the calorimeter and JoulesEye simultaneously.
+            Thus, instead of comparing JoulesEye with the gold standard output of the calorimeter, we use the chest belt
+            as the reference measurement of respiration. The belt consists of a flexible, stretchable material that is worn
+            around the chest, and it contains a sensor that detects the pressure changes caused by breathing. It has a mea
+           surement range of 0-100 breaths per minute with an error of ± 1 breath per minute. It has a sampling rate of 0.1 Hz.
         </p>
-        <ol>
-          <li><em>"Are the two circles touching each other? Answer with Yes/No."</em></li>
-          <li><em>"Are the two circles overlapping? Answer with Yes/No."</em></li>
-        </ol>
 
-        <h3 class="title is-4">Groundtruth</h3>
-        <div class="content">
-          <p>
-            Answers are based on the distance d between circle perimeters:
-          </p>
-          <ul>
-            <li>d < 0: Overlapping and touching</li>
-            <li>d = 0: Non-overlapping but touching</li>
-            <li>d > 0: Non-overlapping and non-touching</li>
-          </ul>
-          <p>Random-baseline accuracy: 50%.</p>
-        </div>
+        <figure>
+            <img src="./static/images/JoulesEye Figures/JoulesEye Setup.PNG"
+              alt="JoulesEye Setup">
+            <figcaption> Fig. 2.  JoulesEye’s is composed of a thermal camera retrofitted in an iPhone as shown in a). JoulesEye can be used in a
+                smartwatch as shown in b). The camera in b) is a low resolution (32x24) thermal camera. c) and e) show the ground truth
+                data collection procedure with indirect calorimeter while running and biking. d shows a screen grab from the indirect
+                calorimeter recording the energy expenditure during an exercise session.</figcaption>
+        </figure>
 
+        <h3 class="title is-3">JoulesEye System</h3>
 
-
-
-        <h2 class="title is-3">Results</h2>
-        <p class="mb-4">
-          The following table shows the performance of the four models on the task of counting line intersections.
+        <p> JoulesEye consists of a thermal camera to record the respiration rate of a person. The thermal camera (Figure 2(a,
+            b)) is used to retrieve the estimated value of respiration rate, temperature and used to estimate the EE. We used a
+            FLIR One Pro <a href="https://www.flir.com/products/flir-one-pro/?vertical=condition+monitoring&segment=solutions">[9]</a> smartphone attachment thermal imaging camera. To take thermal videos, the device needs to
+            be attached to an iPhone and connected to the FLIR ONE mobile application. A user can select the video mode
+            and start recording. The thermal video will be recorded in real-time, showing temperature differences and heat
+            patterns in the scene. The camera has a sampling rate of 8.6 frames per second with a temperature range of -20°C
+            to 120°C. The combined unit of the smartphone and the thermal camera was securely mounted on the handgrip
+            of an ergometer or affixed near the display screen of a treadmill in order to capture thermal video data of the
+            face. We also developed a wristband prototype JoulesEye as shown in Figure 2(b).
         </p>
-        <table class="performance-table results-table">
-          <tr>
-            <th></th>
-            <th>
-              <div class="model-header">
-                <span class="model">GPT-<span class="gpt-green">4o</span></span>
-              </div>
-            </th>
-            <th>
-              <div class="model-header">
-                <span class="model">Gemini-<span class="gemini-blue">1.5</span> Pro</span>
-              </div>
-            </th>
-            <th>
-              <div class="model-header">
-                <span class="model">Sonnet-<span class="sonnet3-brown">3</span></span>
-              </div>
-            </th>
-            <th>
-              <div class="model-header">
-                <span class="model">Sonnet-<span class="sonnet35-brown">3.5</span></span>
-              </div>
-            </th>
-          </tr>
-          <tr>
-            <td>Overlapping</td>
-            <td class="rnumber">71.27</td>
-            <td class="rnumber">93.30</td>
-            <td class="rnumber">88.09</td>
-            <td class="rnumber">88.83</td>
-          </tr>
-          <tr>
-            <td>Touching</td>
-            <td class="rnumber">74.10</td>
-            <td class="rnumber">92.26</td>
-            <td class="rnumber">80.95</td>
-            <td class="highlight rnumber">94.49</td>
-          </tr>
-          <tr>
-            <td><strong>Average</strong></td>
-            <td class="rnumber">72.69</td>
-            <td class="highlight rnumber">92.78</td>
-            <td class="rnumber">84.52</td>
-            <td class="rnumber">91.66</td>
-          </tr>
-        </table>
-
-        <h2 class="title is-3">Qualitative samples</h2>
-      </div>
-
-      <div>
-
-        <div class="container is-max-desktop">
-          <div class="frame">
-            <div class="header">
-              <h2>Are the two circles overlapping? Answer with Yes/No.</h2>
-            </div>
-            <table class="result-table">
-              <tr>
-                <th></th>
-                <th><img
-                    src="static/images/TwoTouchingCircles/samples/overlap/pixels_769_rotation_vertical_diameter_0.14_distance_-0.1.svg"
-                    alt="Circle 1"></th>
-                <th><img
-                    src="static/images/TwoTouchingCircles/samples/overlap/pixels_384_rotation_diagonal_2_diameter_0.2_distance_-0.05.svg"
-                    alt="Circle 2"></th>
-                <th><img
-                    src="static/images/TwoTouchingCircles/samples/overlap/pixels_1155_rotation_horizontal_diameter_0.25_distance_0.0.svg"
-                    alt="Circle 3"></th>
-                <th><img
-                    src="static/images/TwoTouchingCircles/samples/overlap/pixels_769_rotation_diagonal_2_diameter_0.17_distance_0.05.svg"
-                    alt="Circle 4"></th>
-                <th><img
-                    src="static/images/TwoTouchingCircles/samples/overlap/pixels_1155_rotation_horizontal_diameter_0.2_distance_0.1.svg"
-                    alt="Circle 5"></th>
-                <th><img
-                    src="static/images/TwoTouchingCircles/samples/overlap/pixels_384_rotation_diagonal_1_diameter_0.2_distance_0.15.svg"
-                    alt="Circle 6"></th>
-              </tr>
-              <tr class="light-gray">
-                <th style="text-align: center; vertical-align: middle;"><img src="static/images/chatgpt-icon.svg"
-                    class="model-logo" alt="GPT-4o"></th>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">Yes</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">Yes</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">Yes</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">Yes</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">No</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">Yes</span><span
-                    class="cross">✗</span>
-                </td>
-              </tr>
-              <tr>
-                <td style="text-align: center; vertical-align: middle;"><img src="static/images/google-gemini-icon.svg"
-                    class="model-logo" alt="Gemini-1.5"></td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">No</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">Yes</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">Yes</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">No</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">No</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">No</span><span
-                    class="check">✓</span>
-                </td>
-              </tr>
-              <tr class="light-gray">
-                <th style="text-align: center; vertical-align: middle;"><img src="static/images/claude-ai-icon.svg"
-                    class="model-logo" alt="Sonnet-3"></th>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">Yes</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">Yes</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">Yes</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">Yes</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">Yes</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">No</span><span
-                    class="check">✓</span>
-                </td>
-              </tr>
-              <tr>
-                <td style="text-align: center; vertical-align: middle;"><img src="static/images/claude-35.png"
-                    class="model-logo" alt="Sonnet-3.5"></td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">No</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">No</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">No</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">No</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">No</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">No</span><span
-                    class="check">✓</span>
-                </td>
-              </tr>
-            </table>
-            <div class="legend">
-              <div class="legend-item">
-                <img src="static/images/chatgpt-icon.svg" alt="GPT-4o"> <span class="model">GPT-<span
-                    class="gpt-green">4o</span></span>
-              </div>
-              <div class="legend-item">
-                <img src="static/images/google-gemini-icon.svg" alt="Gemini-1.5"> <span class="model">Gemini-<span
-                    class="gemini-blue">1.5</span>
-                  Pro</span>
-              </div>
-              <div class="legend-item">
-                <img src="static/images/claude-ai-icon.svg" alt="Sonnet-3"> <span class="model">Sonnet-<span
-                    class="sonnet3-brown">3</span></span>
-              </div>
-              <div class="legend-item">
-                <img src="static/images/claude-35.png" alt="Sonnet-3"> <span class="model">Sonnet-<span
-                    class="sonnet35-brown">3.5</span></span>
-              </div>
-            </div>
-          </div>
-          <figcaption>Fig. 4: VLMs consistently fail at smaller distances. However, at a large gap, <span
-              class="model">GPT-<span class="gpt-green">4o</span></span> remains unreliable (rightmost). <span
-              class="model">Sonnet-<span class="sonnet35-brown">3.5</span></span> tends to conservatively answer "No"
-            regardless of the actual distance
-            between the two circles.</figcaption>
-        </div>
-      </div>
+        
+    </div>
+   
   </section>
   <!-- TASK 2 Ends -->
 
@@ -2520,320 +1698,132 @@
   <section id="task3" class="section">
     <div class="container is-max-desktop">
 
-      <h2 class="title is-2">Task 3: The circled letter <img src="static/images/logo/acknowledgement-svg.svg"
-          alt="Two intersecting lines" class="task-icon"></h2>
+      <h2 class="title is-2">Data Collection</h2>
 
-
-
-      <div class="content">
+      <div class="content has-text-justified">
         <p>
-          Consistent with prior reports <a href="https://arxiv.org/abs/2304.06712">[2]</a><a
-            href="https://arxiv.org/abs/2310.11441">[3]</a><a href="https://arxiv.org/abs/2309.17421">[4]</a>, we find
-          that VLMs can
-          100%
-          accurately identify a primitive shape (e.g., a red circle ⭕)<a href="https://arxiv.org/abs/2304.06712">[2]</a>
-          and can perfectly read an English word (e.g.,
-          <span class="special-word">Subdermatoglyphic</span>) alone. Here, we superimposed the red circle on every
-          letter, one at a time, in the word,
-          and ask
-          VLMs to identify which letter is being circled. While the task is easy to humans, our hypothesis is that if a
-          VLM's
-          vision is "blurry", it might not be able to identify the exact letter being circled since there is tiny
-          spacing
-          between the adjacent letters.
+            All participants between 18 to 70 years of age without any prior heart ailment could become a participant in
+            the study. In total, 54 volunteers participated in an approximately 45 minutes study session (Table 1). The entry
+            survey consisted of a questionnaire where the participants self-declared their age, weight, sex, time of the last
+            meal and recent illnesses. Our data collection method followed the best practice validation protocol mandated by
+            the Network of Physical Activity Assessment (INTERLIVE) <a href="https://pubmed.ncbi.nlm.nih.gov/35260991/">[3]</a>. The participants were shown how to wear the
+            indirect calorimeter mask. All participants participated in two back-to-back data collection sessions.
         </p>
 
-        <h3 class="title is-4">Images</h3>
-        <p>
-          We choose three strings <span class="special-word">Acknowledgement</span>, <span
-            class="special-word">Subdermatoglyphic</span>, and tHyUiKaRbNqWeOpXcZvM because they contain
-          characters
-          of variable widths and heights. Furthermore, all four tested VLMs can read out all characters in these strings
-          when
-          they are input to the models as an image. While <span class="special-word">Acknowledgement</span> is a common
-          English word, <span class="special-word">Subdermatoglyphic</span> is
-          the
-          longest word without repetitive letters. We also test VLMs on the random string <span
-            class="special-word">tHyUiKaRbNqWeOpXcZvM</span> to
-          estimate how
-          much model accuracy is due to its familiarity with the word.
-        </p>
-        <p>
-          For each (string, circled-letter) pair, we render a 512×512 image by choosing among 3 red oval line-thickness
-          levels,
-          2 font sizes, and 4 random positions in the canvas for a total of 24 images. That is, we generate 360, 408,
-          and 480
-          images for <span class="special-word">Acknowledgement</span> (15 letters), <span
-            class="special-word">Subdermatoglyphic</span> (17 letters), and
-          <span class="special-word">tHyUiKaRbNqWeOpXcZvM</span> (20
-          letters),
-          respectively. We ensure each letter to be circled fits completely the oval.
-        </p>
+    </div>
 
-        <div class="columns is-multiline is-mobile">
-          <div class="column is-3">
-            <figure class="image">
-              <img
-                src="./static/images/CircledLetter/benchmark_samples/gt_n_pred_n_text_image_54b43961-119e-4dc3-80fc-56d6fb4897fe.png"
-                alt="Circled letter example 1">
-              <figcaption><span class="special-word">Acknowledgement</span> with 'n' circled</figcaption>
-            </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image">
-              <img
-                src="./static/images/CircledLetter/benchmark_samples/gt_t_pred_t_text_image_7b9fb60f-f583-4e74-9765-f3330c63bc6e.png"
-                alt="Circled letter example 2">
-              <figcaption><span class="special-word">tHyUiKaRbNqWeOpXcZvM</span> with 't' circled</figcaption>
-            </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image">
-              <img
-                src="./static/images/CircledLetter/benchmark_samples/gt_x_pred_x_text_image_b5b61850-f87d-4fcb-ae7a-19ea4f69ef39.png"
-                alt="Circled letter example 3">
-              <figcaption><span class="special-word">tHyUiKaRbNqWeOpXcZvM</span> with 'X' circled</figcaption>
-            </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image">
-              <img
-                src="./static/images/CircledLetter/benchmark_samples/gt_u_pred_u_text_image_7e270309-130a-480a-a3d5-1078d29ae148.png"
-                alt="Circled letter example 4">
-              <figcaption><span class="special-word">Subdermatoglyphic</span> with 'u' circled</figcaption>
-            </figure>
-          </div>
-        </div>
-        <figcaption>Fig. 5: Examples of circled letter images used in the task, showing different words and circled
-          letters.
-        </figcaption>
-      </div>
-
-      <h3 class="title is-4">Prompts</h3>
-      <div class="content">
-        <p>
-          We ask each question using two different wordings:
-        </p>
-        <ol>
-          <li><em>"Which letter is being circled?"</em></li>
-          <li><em>"Which character is being highlighted with a red oval?"</em></li>
-        </ol>
-
-        <h3 class="title is-4">Groundtruth</h3>
-        <div class="content">
-          <p>
-            Letters need to match predicted letters exactly (case-insensitive).
-          </p>
-        </div>
-
-
-
-
-        <h2 class="title is-3">Results</h2>
-        <p class="mb-4">
-          The following table shows the performance of the four models on the task of identifying the circled letter.
-        </p>
-        <table class="performance-table results-table">
-          <tr>
-            <th>Word</th>
-            <th>
-              <div class="model-header">
-                <span class="model">GPT-<span class="gpt-green">4o</span></span>
-              </div>
-            </th>
-            <th>
-              <div class="model-header">
-                <span class="model">Gemini-<span class="gemini-blue">1.5</span> Pro</span>
-              </div>
-            </th>
-            <th>
-              <div class="model-header">
-                <span class="model">Sonnet-<span class="sonnet3-brown">3</span></span>
-              </div>
-            </th>
-            <th>
-              <div class="model-header">
-                <span class="model">Sonnet-<span class="sonnet35-brown">3.5</span></span>
-              </div>
-            </th>
-          </tr>
-          <tr>
-            <td><span class="special-word">Acknowledgement</span></td>
-            <td class="rnumber">69.03</td>
-            <td class="rnumber">97.50</td>
-            <td class="rnumber">82.64</td>
-            <td class="rnumber">91.11</td>
-          </tr>
-          <tr>
-            <td><span class="special-word">Subdermatoglyphic</span></td>
-            <td class="rnumber">63.60</td>
-            <td class="rnumber">91.05</td>
-            <td class="rnumber">71.45</td>
-            <td class="rnumber">94.49</td>
-          </tr>
-          <tr>
-            <td><span class="special-word">tHyUiKaRbNqWeOpXcZvM</span></td>
-            <td class="rnumber">77.92</td>
-            <td class="rnumber">89.90</td>
-            <td class="rnumber">65.94</td>
-            <td class="rnumber">82.08</td>
-          </tr>
-          <tr>
-            <td><strong>Average</strong></td>
-            <td class="rnumber">70.18</td>
-            <td class="rnumber">92.81</td>
-            <td class="rnumber">73.34</td>
-            <td class="rnumber">89.22</td>
-          </tr>
+    <div class="content">
+        <table>
+            <caption>Table 1. Demographic information for the participants</caption>
+            <tr>
+                <td>Total participants (n)</td>
+                    <td>54</td>
+            </tr>
+            <tr>
+                <td>Participants who performed cycling on ergometer</td>
+                <td>41</td>
+            </tr>
+            <tr>
+                <td>Participants who performed running on treadmill</td>
+                <td>13</td>
+            </tr>
+            <tr>
+                <td>Female (n, %)</td>
+                <td>24, (44.4%)</td>
+            </tr>
+            <tr>
+                <td>Age (in years) (mean, range)</td>
+                <td>28.4 (25–54)</td>
+            </tr>
         </table>
-      </div>
-      <div>
-        <h2 class="title is-3">Qualitative samples</h2>
-        <div class="container is-max-desktop">
-          <div class="frame">
-            <div class="header">
-              <h2>Which letter is being circled?</h2>
-            </div>
-            <table class="result-table">
-              <tr>
-                <th></th>
-                <th><img
-                    src="static/images/CircledLetter/QualSamples/P1/gt_l_Sonnet_o_Sonnet-3.5_l_GPT-4o_o_Gemini-1.5-Pro_w_text_image_9d28452a-29b5-4c12-9fd4-020410a9c0a8_prompt1.png"
-                    alt="Circled Letter 1"></th>
-                <th><img
-                    src="static/images/CircledLetter/QualSamples/P1/gt_m_Sonnet_e_Sonnet-3.5_e_GPT-4o_e_Gemini-1.5-Pro_m_text_image_9eb95711-547b-4340-99db-8cf91d09902c_prompt1.png"
-                    alt="Circled Letter 2"></th>
-                <th><img
-                    src="static/images/CircledLetter/QualSamples/P1/gt_n_Sonnet_e_Sonnet-3.5_t_GPT-4o_t_Gemini-1.5-Pro_n_text_image_040f7cb9-681c-4e3f-9fb2-f9a23fc7ca3a_prompt1.png"
-                    alt="Circled Letter 3"></th>
-                <th><img
-                    src="static/images/CircledLetter/QualSamples/P1/gt_p_Sonnet_y_Sonnet-3.5_h_GPT-4o_o_Gemini-1.5-Pro_p_text_image_4ee4fd8b-6af2-4b9e-9a4d-b2ef2e1ade30_prompt1.png"
-                    alt="Circled Letter 4"></th>
-                <th><img
-                    src="static/images/CircledLetter/QualSamples/P1/gt_t_Sonnet_a_Sonnet-3.5_t_GPT-4o_o_Gemini-1.5-Pro_o_text_image_ee8e7572-f2e9-43df-a71c-039d504453bd_prompt1.png"
-                    alt="Circled Letter 5"></th>
-                <th><img
-                    src="static/images/CircledLetter/QualSamples/P1/gt_v_Sonnet_t_Sonnet-3.5_m_GPT-4o_z_Gemini-1.5-Pro_v_text_image_6a65095e-4691-4a31-a846-cdd6bae99706_prompt1.png"
-                    alt="Circled Letter 6"></th>
-              </tr>
-              <tr class="light-gray">
-                <th style="text-align: center; vertical-align: middle;"><img src="static/images/chatgpt-icon.svg"
-                    class="model-logo" alt="GPT-4o"></th>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">o</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">e</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">t</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">o</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">o</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">z</span><span
-                    class="cross">✗</span>
-                </td>
-              </tr>
-              <tr>
-                <td style="text-align: center; vertical-align: middle;"><img src="static/images/google-gemini-icon.svg"
-                    class="model-logo" alt="Gemini-1.5"></td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">w</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">m</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">n</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">p</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">o</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">v</span><span
-                    class="check">✓</span>
-                </td>
-              </tr>
-              <tr class="light-gray">
-                <th style="text-align: center; vertical-align: middle;"><img src="static/images/claude-ai-icon.svg"
-                    class="model-logo" alt="Sonnet-3"></th>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">o</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">e</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">e</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">y</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">a</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">t</span><span
-                    class="cross">✗</span>
-                </td>
-              </tr>
-              <tr>
-                <td style="text-align: center; vertical-align: middle;"><img src="static/images/claude-35.png"
-                    class="model-logo" alt="Sonnet-3.5"></td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">l</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">e</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">t</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">h</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">t</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">m</span><span
-                    class="cross">✗</span>
-                </td>
-              </tr>
-            </table>
-            <div class="legend">
-              <div class="legend-item">
-                <img src="static/images/chatgpt-icon.svg" alt="GPT-4o"> <span class="model">GPT-<span
-                    class="gpt-green">4o</span></span>
-              </div>
-              <div class="legend-item">
-                <img src="static/images/google-gemini-icon.svg" alt="Gemini-1.5"> <span class="model">Gemini-<span
-                    class="gemini-blue">1.5</span>
-                  Pro</span>
-              </div>
-              <div class="legend-item">
-                <img src="static/images/claude-ai-icon.svg" alt="Sonnet-3"> <span class="model">Sonnet-<span
-                    class="sonnet3-brown">3</span></span>
-              </div>
-              <div class="legend-item">
-                <img src="static/images/claude-35.png" alt="Sonnet-3"> <span class="model">Sonnet-<span
-                    class="sonnet35-brown">3.5</span></span>
-              </div>
-            </div>
-          </div>
-          <figcaption>Fig. 6: Identifying the letter being circled is non-trivial for VLMs across both English words
-            (<span class="special-word">Acknowledgement</span> & <span class="special-word">Subdermatoglyphic</span>)
-            and a random string
-            (<span class="special-word">tHyUiKaRbNqWeOpXcZvM</span>). When making mistakes, VLMs
-            tend to
-            predict letters adjacent to the circled one.</figcaption>
 
-        </div>
-      </div>
+    </div>
+
+    <h3 class="title is-3">Session 1: Data Collection Using JoulesEye</h3>
+
+    <div class="content has-text-justified">
+
+        <p> Participants cycled on a stationary bike or ran on a treadmill for
+            both the sessions. In the first session, the participant ran for three minutes at a high intensity (4-5 miles/h running
+            and 2.5-3 miles/h cycling). We limited the high intensity session to three minutes keeping the participant’s
+            comfort in mind. Figure 3(a) shows a frame of the face during this session. The following data are collected during
+            this session:
+
+            <ul>
+                <li>Thermal video data of the upper body with the frame covering the face. This data is later processed to
+                    extract respiration rate.</li>
+                <li> Respiration rate from the chest belt.</li>
+            </ul>
+
+        </p>
+
+        <figure>
+            <img src="./static/images/JoulesEye Figures/Thermal Face Image.PNG"
+              alt="Thermal Images during Data Collection">
+            <figcaption> Fig. 3. In a) the participant has not donned the indirect calorimeter mask and hence the region tracking algorithm is able to
+                keep track of the nostrils (nostril also shown in inset image). In b) the nostrils are covered by the mask making respiration
+                detection impossible. We call a) as the JoulesEye data collection. During a) we could not collect the indirect calorimeter data
+                in parallel as otherwise the nostrils would be occluded. Here, we use the respiration data from chest belt as the reference
+                values. Thus, we could quantitatively evaluate the performance of JoulesEye’s respiration rate pipeline with ground truth
+                respiration data from the belt. We later used the respiration rate from JoulesEye data to estimate energy expenditure</figcaption>
+        </figure>
+
+    </div>
+
+    <h3 class="title is-3">Session 2: Data Collection Using Indirect Calorimeter</h3>
+
+    <div class="content has-text-justified">
+
+        <p> In this session, the participant donned the indirect
+            calorimeter mask along with chest belt and performed cycling or running for 15 minutes comprising of High
+            Intensity Interval Training (HIIT). The thermal camera recorded the face of the person during this session as well. 
+            Figure 3(b) shows a thermal frame of this session where the participant has donned the mask. Note that the nostrils 
+            are not visible and this thermal data cannot be used to extract respiration rate. The following data are collected 
+            during this session:
+
+            <ul>
+                <li>Thermal data with frame covering the upper body including the face. The nostrils are now occluded by the
+                    mask. </li>
+                <li>Respiration rate from the chest belt.</li>
+                <li>Energy Expenditure, volume of exhaled air and respiration rate from the indirect calorimeter.</li>
+            </ul>
+        </p>
+
+    </div>
+
+    <h3 class="title is-3">Additional Data: Heart Rate and Temperature</h3>
+
+    <div class="content has-text-justified">
+
+        <p>We evaluated how temperature data and heart rate data can affect the energy expenditure estimation. We are
+            interested in heart rate because, heart rate is one of the most common proxies for energy
+            expenditure and together with respiration rate, the estimations can improve.
+        </p>
+
+        <h4 class="title is-4">Extracting Temperature</h4>
+
+        <p>Our pilot experiments showed that temperature change occurs in the region of
+            face with bony prominence like forehead, jawline and nose tip when a person is cycling an ergometer or running
+            on the treadmill. It is known that physical activity increases the metabolic rate and generates heat in the body.
+            This increased heat is transmitted through the blood vessels and nerves in the bony regions, leading to an increase
+            in skin temperature in these regions <a href="https://digitalcollection.zhaw.ch/handle/11475/5014">[5]</a>. We extracted temperature information from the forehead.
+        </p>
+
+        <h4 class="title is-4">Heart Rate</h4>
+
+        <p>To make a fair comparison of the energy expenditure (EE) estimates produced by our approach,
+            it was important to compare it with the currently accepted EE estimates produced by smart watches. The heart
+            rate data from a Apple Watch was collected continuously during cycling and running, providing a continuous
+            measurement of the individual’s heart rate. This heart rate data was used as an additional optional input to our
+            approach of estimate energy expenditure in combination with other physiological signals such as respiration
+            rate and temperature. We also used the energy expenditure data from the Apple Watch as the reference for
+            comparison with the energy expenditure estimates produced by our approach. By using the energy expenditure
+            data from the Apple Watch as well as from our own model, it was possible to make a fair comparison of the
+            accuracy of the energy expenditure estimates with respect to the ground truth.
+        </p>
+
+    </div>
+
   </section>
   <!-- TASK 3 Ends -->
 
@@ -2844,292 +1834,115 @@
   <section id="task4" class="section">
     <div class="container is-max-desktop">
 
-      <h2 class="title is-2">Task 4: Counting overlapping shapes <img src="static/images/logo/olympic-rings-svg.svg"
-          alt="Two intersecting lines" class="task-icon"></h2>
+      <h2 class="title is-2">Modeling</h2>
 
-
-
-      <div class="content">
+      <div class="content has-text-justified">
         <p>
-          Aligned with prior research <a href="https://arxiv.org/abs/2309.17421">[4]</a>, we also find VLMs to be able
-          to count disjoint circles. Yet, here, we test
-          VLMs on
-          counting circles that are <em>intersecting</em> like in the Olympic logo—a common cognitive development
-          exercise for
-          preschoolers <a
-            href="https://www.myteachingstation.com/preschool/math/numbers/count-shapes-printables">[5]</a><a
-            href="https://depositphotos.com/vector/how-many-counting-game-with-color-simple-geometric-shapes-for-kids-educational-maths-task-for-266096226.html">[6]</a>.
-          Our hypothesis is that a "blurry" vision may not see the
-          intersection between two circles
-          clearly
-          and therefore unable to trace circles and count them. For generalization of our findings, we repeat the
-          experiment
-          with pentagons as well.
+            Energy Expenditure (EE) is represented in cal/min, deduced from VO<sub>2</sub>. We aim to estimate Energy
+            Expenditure (EE) from Respiration Rate (RR). We do this in two phases:
+
+            <ul>
+                <li>We will first estimate the volume of exhaled air (\(v\)) from RR.</li>
+                <li>Next, we will use the estimated volume information (\(v\)) to estimate the measures the oxygen concentration
+                    in a breath or VO<sub>2</sub>.</li>
+            </ul>
         </p>
 
-        <h3 class="title is-4">Images</h3>
         <p>
-          In an image of size C×C, where C ∈ {384, 769, 1155}px, we draw N ∈ {5, 6, 7, 8, 9} overlapping, same-sized
-          circles
-          arranged in two rows like the Olympic logo. A circle diameter φ ∈ {C/5, C/10}. We repeat the images with two
-          different
-          line thickness for rendering circles. This procedure renders 3 resolutions × 5 × 2 diameters = 60 images. We
-          repeat
-          for pentagons in addition to circles, resulting in 60 × 2 shapes = 120 images in total. For pentagons, their
-          side
-          length d ∈ {C/5, C/10}.
+            The inspiration of using this two-phased approach comes from the indirect calorimeter, which measures the
+            oxygen concentration (O<sub>2</sub>) in a breath. O<sub>2</sub> concentration in the inhaled air vary depending on factors like gas
+            exchange efficiency and body composition. By trying to model the relationship between the amount of O<sub>2</sub>
+            consumed and the volume of exhaled air (\(v\)), we can account for efficiency and body composition. But, \(v\) is
+            not readily available without the indirect calorimeter. Therefore, our first objective is to estimate \(v\) from RR
+            data. Using RR alone to estimate VO<sub>2</sub> can lead to inaccuracies because it does not take into account individual
+            differences in lung capacities and breathing patterns. We expect our model to learn these factors to estimate \(v\)
+            from RR alone. Our second model would then learn the transfer function and estimate unmeasured factors that
+            would determine VO<sub>2</sub> from \(v\).
         </p>
 
-
-        <div class="columns is-multiline is-mobile">
-          <div class="column is-3">
-            <figure class="image">
-              <img
-                src="./static/images/OlympicLikeLogo/dataset_samples/pixels_384_linewidth_0.5_diameter_0.1_numCircles_5_black.svg"
-                alt="Olympic-like logo example 1">
-              <figcaption>5 circles, small diameter</figcaption>
-            </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image">
-              <img
-                src="./static/images/OlympicLikeLogo/dataset_samples/pixels_384_linewidth_0.5_diameter_0.2_numCircles_6_black_2.svg"
-                alt="Olympic-like logo example 2">
-              <figcaption>6 circles, large diameter</figcaption>
-            </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image">
-              <img
-                src="./static/images/OlympicLikeLogo/dataset_samples/pixels_769_linewidth_1_diameter_0.1_numCircles_8_colored_2.svg"
-                alt="Olympic-like logo example 3">
-              <figcaption>8 colored circles</figcaption>
-            </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image">
-              <img
-                src="./static/images/OlympicLikeLogo/PentagonShapes/dataset_samples/pixels_1155_linewidth_1_side_0.0625_numCircles_9_colored.svg"
-                alt="Olympic-like logo example 4">
-              <figcaption>9 colored pentagons</figcaption>
-            </figure>
-          </div>
-        </div>
-        <figcaption>Fig. 7: Examples of Olympic-like logo images used in the task, showing different numbers of shapes,
-          sizes,
-          and colors.</figcaption>
-      </div>
-
-      <h3 class="title is-4">Prompts</h3>
-      <div class="content">
+        <h4 class="title is-4">Predicting Volume from RR</h3>
         <p>
-          We ask each question using two different wordings:
+            Both our models are an adaptation of the Temporal Convolution Network with
+            residuals (TCN) <a href="https://arxiv.org/abs/1803.01271">[4]</a>. TCN leverages causal convolutions and dilation. Causal convolution enforces a unidirectional
+            information flow, while dilation allows to capture long-range dependencies of the input. In our work, the model
+            tries to learn a function \(f_1\) that best predicts the volume \(v_t\) at time stamp \(t\) such that
         </p>
-        <ol>
-          <li><em>"How many {shapes} are in the image? Answer with only the number in numerical format."</em></li>
-          <li><em>"Count the {shapes} in the image. Answer with a number in curly brackets e.g. {3}."</em></li>
-        </ol>
+
         <p>
-          Where {shapes} is either "circles" or "pentagons" depending on the image.
+            \[
+            v_t = f_1(v_{t-k:t-1}, RR_{t-k:t})
+            \]
         </p>
-        <h3 class="title is-4">Groundtruth</h3>
-        <div class="content">
-          <p>
-            Answers are ∈ {5, 6, 7, 8, 9} (random-baseline accuracy: 20%).
-          </p>
-        </div>
 
+        <p>
+            The model iterates over multiple samples of input and output to learn the function \(f_1\). During prediction,
+            subsequent samples (\(v_{t+1}, v_{t+2}...\)), are predicted autoregressively i.e.
 
-        <h2 class="title is-3">Results</h2>
-        <p class="mb-4">
-          The following table shows the performance of the four models on the task of identifying the circled letter.
         </p>
-        <table class="performance-table results-table">
-          <tr>
-            <th></th>
-            <th>
-              <div class="model-header">
-                <span class="model">GPT-<span class="gpt-green">4o</span></span>
-              </div>
-            </th>
-            <th>
-              <div class="model-header">
-                <span class="model">Gemini-<span class="gemini-blue">1.5</span> Pro</span>
-              </div>
-            </th>
-            <th>
-              <div class="model-header">
-                <span class="model">Sonnet-<span class="sonnet3-brown">3</span></span>
-              </div>
-            </th>
-            <th>
-              <div class="model-header">
-                <span class="model">Sonnet-<span class="sonnet35-brown">3.5</span></span>
-              </div>
-            </th>
-          </tr>
-          <tr>
-            <td>Circles</td>
-            <td class="rnumber">42.50</td>
-            <td class="rnumber">20.83</td>
-            <td class="rnumber">31.66</td>
-            <td class="highlight rnumber">44.16</td>
-          </tr>
-          <tr>
-            <td>Pentagons</td>
-            <td class="rnumber">19.16</td>
-            <td class="rnumber">9.16</td>
-            <td class="rnumber">11.66</td>
-            <td class="highlight rnumber">75.83</td>
-          </tr>
-        </table>
 
-      </div>
+        <p>
+            \[
+            v_{t+1} = f_1(v_{t-k+1:t}, RR_{t-k+1:t+1})
+            \]
+        </p>
 
-      <div>
-        <h2 class="title is-3">Qualitative samples</h2>
+        <p>
+            where the predicted volume is used as an input to the next model which predics VO<sub>2</sub>.
+        </p>
 
-        <div class="container is-max-desktop">
-          <div class="frame">
-            <div class="header">
-              <h2>How many circles are in the image? Answer with only the number in numerical format.</h2>
-            </div>
-            <table class="result-table">
-              <tr>
-                <th></th>
-                <th><img
-                    src="./static/images/OlympicLikeLogo/final_qual/pixels_384_linewidth_0.5_diameter_0.1_numCircles_5_black_2_withOutline.svg"
-                    alt="Circle 1"></th>
-                <th><img
-                    src="./static/images/OlympicLikeLogo/final_qual/pixels_1155_linewidth_1_diameter_0.1_numCircles_6_colored_withOutline.svg"
-                    alt="Circle 2"></th>
-                <th><img src="./static/images/OlympicLikeLogo/circles-qual/7226b34e-acd7-47b3-b123-09283b6907d3.svg"
-                    alt="Circle 3">
-                </th>
-                <th><img
-                    src="./static/images/OlympicLikeLogo/final_qual/pixels_769_linewidth_0.5_diameter_0.1_numCircles_9_colored_withOutline.svg"
-                    alt="Circle 4"></th>
-                <th><img
-                    src="./static/images/OlympicLikeLogo/final_qual/pixels_769_linewidth_1_diameter_0.14285714285714285_numCircles_9_black_withOutline.svg"
-                    alt="Circle 5"></th>
-                <th><img src="./static/images/OlympicLikeLogo/circles-qual/d11c1a19-8a05-40e1-a882-f73210b1c777.svg"
-                    alt="Circle 6">
-                </th>
-              </tr>
-              <tr class="light-gray">
-                <th style="text-align: center; vertical-align: middle;"><img src="static/images/chatgpt-icon.svg"
-                    class="model-logo" alt="GPT-4o"></th>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">7</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">12</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">11</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5</span><span
-                    class="cross">✗</span>
-                </td>
-              </tr>
-              <tr>
-                <td style="text-align: center; vertical-align: middle;"><img src="static/images/google-gemini-icon.svg"
-                    class="model-logo" alt="Gemini-1.5"></td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5</span><span
-                    class="cross">✗</span>
-                </td>
-              </tr>
-              <tr class="light-gray">
-                <th style="text-align: center; vertical-align: middle;"><img src="static/images/claude-ai-icon.svg"
-                    class="model-logo" alt="Sonnet-3"></th>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">3</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">10</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">10</span><span
-                    class="cross"></span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5</span><span
-                    class="cross">✗</span>
-                </td>
-              </tr>
-              <tr>
-                <td style="text-align: center; vertical-align: middle;"><img src="static/images/claude-35.png"
-                    class="model-logo" alt="Sonnet-3.5"></td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">4</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">6</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">6</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">10</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">9</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">7</span><span
-                    class="check">✓</span>
-                </td>
-              </tr>
-            </table>
-            <div class="legend">
-              <div class="legend-item">
-                <img src="static/images/chatgpt-icon.svg" alt="GPT-4o"> <span class="model">GPT-<span
-                    class="gpt-green">4o</span></span>
-              </div>
-              <div class="legend-item">
-                <img src="static/images/google-gemini-icon.svg" alt="Gemini-1.5"> <span class="model">Gemini-<span
-                    class="gemini-blue">1.5</span>
-                  Pro</span>
-              </div>
-              <div class="legend-item">
-                <img src="static/images/claude-ai-icon.svg" alt="Sonnet-3"> <span class="model">Sonnet-<span
-                    class="sonnet3-brown">3</span></span>
-              </div>
-              <div class="legend-item">
-                <img src="static/images/claude-35.png" alt="Sonnet-3"> <span class="model">Sonnet-<span
-                    class="sonnet35-brown">3.5</span></span>
-              </div>
-            </div>
-          </div>
-          <figcaption>Fig. 8: <span class="model">Gemini-<span class="gemini-blue">1.5</span>
-              Pro</span> often predicts "5" circles.</figcaption>
+        <h4 class="title is-4">Predicting VO<sub>2</sub> from Volume</h3>
+        <p>
+            The approach to modeling VO<sub>2</sub> from volume is similar to the previous modeling
+            approach where we use the TCN network, but this time we only use the volume information to predict VO<sub>2</sub>, i.e.
+        </p>
 
-        </div>
-      </div>
+        <p>
+            \[
+            vo_{t+p} = f_2(v_t : v_{t+p-1})
+            \]
+        </p>
+
+        <p>
+            where \(p\) is the number of samples of volume. Therefore, to predict the first sample of VO<sub>2</sub>, we need in total \(k + p\)
+            samples of respiration rate.
+        </p>
+
+        <figure>
+            <img src="./static/images/JoulesEye Figures/Estimation Model.PNG"
+              alt="Deep Learning Model Architecture">
+            <figcaption> Fig. 4. We build a deep learning network similar to the Temporal Convolution Network (TCN) with residuals to estimate
+                volume as a function of respiration rate and volume i.e. v<sub>t</sub> = f<sub>1</sub>(v<sub>(t-k:t-1)</sub>,RR<sub>(t-k:t)</sub>). Additionally, we also evaluated
+                the performance of the model with additional covariates, namely heart rate (HR) and temperature (T) collected from the
+                forehead. On using HR and T, the equation becomes, v<sub>t</sub> = f<sub>1</sub>(v<sub>(t-k:t-1)</sub>,HR<sub>(t-k:t)</sub>,T<sub>(t-k:t)</sub>,RR<sub>(t-k:t)</sub>). The residual blocks
+                are composed of 1D dilated causal convolution (the first layer has no dilation), a ReLU activation and dropout <a href="https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/cit2.12060">[10]</a>. A similar
+                convolution is used to later predict VO2 (calorie or energy expenditure) from Volume.</figcaption>
+        </figure>
+
+        <h4 class="title is-4">Using Heart Rate (HR) and Temperature Data (T)</h3>
+        <p>
+            During data collection, we retrieved heart rate data from both a chest belt and a smartwatch. Additionally, we obtained approximate temperature data
+            from thermal readings. To enhance our analysis, we incorporated Heart Rate (HR) data from the smartwatch and
+            forehead temperature (T) data as additional covariates. These supplementary variables enabled us to evaluate
+            the performance of estimating \(v\) using different combinations of covariates, including HR alone, RR alone, a
+            combination of RR and HR, and a combination of RR, HR, and T. For example, with an input of RR , HR and T, the
+            equation to estimate \(v\) becomes
+        </p>
+
+        <p>
+            \[
+            v_t = f_1(v_{t-k:t-1}, HR_{t-k:t}, T_{t-k:t}, RR_{t-k:t})
+            \]
+        </p>
+
+        <p>
+            Figure 4 illustrates the corresponding TCN model for this combination of inputs. By modifying one (e.g., using
+            only T and RR or T and HR) or two covariates (using only RR), we adjusted the input dimension of the model,
+            necessitating corresponding adaptations to the kernel dimension while maintaining the dimensions of the tensors
+            within the residual network unchanged.
+        </p>
+
+    </div>
+
   </section>
   <!-- TASK 4 Ends -->
 
@@ -3141,916 +1954,371 @@
     <div class="container is-max-desktop">
 
 
-      <h2 class="title is-2">Task 5: Counting the nested squares <img src="static/images/logo/nested-squares-svg.svg"
-          alt="Two intersecting lines" class="task-icon"></h2>
+      <h2 class="title is-2">Results and Discussion</h2>
 
 
-      <div class="content">
+      <div class="content has-text-justified">
         <p>
-          Motivated by the findings that VLMs struggle in counting the intersected circles (Task 4), here, we arrange
-          the shapes
-          differently so that their edges do <em>not</em> intersect.
-          That is, each shape is nested entirely inside another. For completeness, we test squares in this task.
+            In this section, we first discuss the performance of respiration detection from thermal video when compared to
+            ground truth from a respiration belt. Next, we discuss the performance of energy expenditure estimation from
+            respiration, heart rate, and temperature data.
         </p>
 
-        <h3 class="title is-4">Images</h3>
-        <p>
-          In a canvas of size C×C, we render N ∈ {2, 3, 4, 5} nested squares.
-          The outermost square is rendered first using a random edge length d and a line thickness ∈ {2, 3, 4}px.
-          The remaining N-1 squares are drawn using a size reduction factor, 0.75 × d and placed at a random coordinate
-          that
-          ensures they do not touch outer squares.
-          For each line thickness, we generate 10 images (where squares have different, random locations) to create 3 ×
-          10 = 30
-          images.
-          Repeating the process for all N values results in 4 × 30 = 120 images.
-        </p>
-        <div class="columns is-multiline is-mobile">
-          <div class="column is-3">
-            <figure class="image">
-              <img
-                src="./static/images/NestedSquares/benchmark_samples/gt_2_predicted_2_nested_squares_depth_2_image_2_thickness_3.svg"
-                alt="2 nested squares">
-              <figcaption>2 nested squares</figcaption>
+        <h3 class="title is-3">Result on Estimating Respiration Rate</h3>
+            <p>
+                With the data from the first session we observed that the error between
+                respiration rate detection from thermal data when compared to respiration belt is 2.1% (Figure 7 (A)). Furthermore,
+                from the data collected from the second session we quantified that the error between respiration rate detection
+                from indirect calorimeter and respiration belt is 1.68%.
+            </p>
+
+            <figure>
+                <img src="./static/images/JoulesEye Figures/RR_estimation_result.PNG"
+                  alt="Result on Estimating Respiration Rate">
+                <figcaption> Fig. 5. The data obtained during the first session <b>(A)</b> serves the purpose of quantifying the discrepancy between the respiration
+                    signal extracted from the thermal video and the signal obtained from the belt. This quantification holds significance for
+                    subsequent insights, as depicted in Figure 6. The data collected during the second session <b>(B)</b> showcases the error in
+                    estimating VO<sub>2</sub> or EE when employing the respiration signal from an indirect calorimeter or a chest belt. Notably, it is
+                    important to recall that using an indirect calorimeter obstructs the view of the nostril from the thermal camera.
+                </figcaption>
             </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image">
-              <img
-                src="./static/images/NestedSquares/benchmark_samples/gt_3_predicted_3_nested_squares_depth_3_image_6_thickness_3.svg"
-                alt="3 nested squares">
-              <figcaption>3 nested squares</figcaption>
+            
+            <p>
+                Both these numbers (2.1% and 1.68%) are better compared to previous work <a href="https://ieeexplore.ieee.org/document/9380434">[1]</a> which
+                uses Electrocardiogram and Photoplethysmogram to calculate respiration rate. Since both, respiration rate and
+                energy expenditure are on different scales, using MAPE gives us a good idea of how changing one modality
+                impacts the other.
+            </p>
+
+            <figure>
+                <img src="./static/images/JoulesEye Figures/EE_estimation_pipeline.PNG"
+                  alt="JoulesEye EE estimation pipeline">
+                <figcaption> Fig. 6. JoulesEye EE estimation pipeline: The calorimeter’s mask obstructs direct thermal-based respiration retrieval by
+                    blocking the camera’s view of the nostrils. To replicate thermal-based respiration, we added noise to the belt-derived
+                    respiration signal, introducing a 2.1% error to simulate the difference between the reference respiration from the belt and the
+                    thermal video. The resulting noisy respiration rate (RR) signal was then input into the first TCN model for volume estimation.
+                    The estimated volume was subsequently passed to the second TCN model to predict VO<sub>2</sub> or energy expenditure.
+                </figcaption>
             </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image">
-              <img
-                src="./static/images/NestedSquares/benchmark_samples/gt_4_predicted_5_nested_squares_depth_4_image_7_thickness_3.svg"
-                alt="4 nested squares">
-              <figcaption>4 nested squares</figcaption>
+
+        <h3 class="title is-3">Result on Estimating Energy Expenditure</h3>
+
+            <h4 class="title is-4">Using True and Reference Respiration Rate</h4>
+
+            <p>
+                Figure 5(B) shows the pipeline of estimating energy expenditure
+                or VO<sub>2</sub> from ground truth respiration rate from the calorimeter and the reference respiration rate from the chest
+                belt. The first TCN model is used to estimate volume of exhaled air from respiration rate data. The estimated
+                volume of exhaled air is then used as an input to the second TCN model which estimates energy expenditure
+                or VO<sub>2</sub>. Figure 5 shows that the best result of 5% Mean Absolute Percentage Error (MAPE) was obtained when
+                ground truth respiration rate was input into the model. Using the belt’s respiration rate as an input gives us an
+                MAPE of 5.2%. To put these numbers into context, we compared the performance of using respiration rate as a
+                predictor versus heart rate and temperature. We also compared the result obtained from Apple Smart Watch. In Figure 7, 
+                the following inputs are shown:
+
+                <ul>
+                    <li>True HR: This is the heart rate obtained from the indirect calorimeter chest band for heart rate.</li>
+                    <li>Estimated HR: This is the heart rate obtained using Apple Smartwatch.</li>
+                    <li>True RR: This is the respiration rate obtained from indirect calorimeter.</li>
+                    <li>Estimated RR: This is the RR generated by adding noise to the RR from the respiration belt.</li>
+                    <li>Estimated RR and HR: This means the estimated RR data and Apple Watch HR data.</li>
+                    <li>Estimated RR, HR and T: This means the estimated RR data, Apple Watch HR data and the temperature
+                        data collected during session 2.</li>
+                </ul>
+            </p>
+
+            <figure>
+                <img src="./static/images/JoulesEye Figures/Error_EE_estimation.PNG"
+                  alt="Percentage Error in Estimating Energy Expenditure">
+                <figcaption> Fig. 7. Comparision of True and Estimated HR/RR with MAPE analysis.
+                </figcaption>
             </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image">
-              <img
-                src="./static/images/NestedSquares/benchmark_samples/gt_5_predicted_1_nested_squares_depth_5_image_4_thickness_3.svg"
-                alt="5 nested squares">
-              <figcaption>5 nested squares</figcaption>
+
+            <h4 class="title is-4">Using Proxy Respiration Rate</h4>
+
+            <p>
+                We described earlier, why respiration rate obtained from thermal
+                data is not available with ground truth of energy expenditure. But, from comparison of Session 1 data (Figure 5),
+                we know that the error between respiration rate obtained from thermal data and belt is 2.1%. Thus, we can use
+                the respiration data of belt from Session 2 (Figure 5) and add noise to it so that we generate new respiration
+                data which has an error of 2.1%. We use this respiration data to predict energy expenditure as shown in Figure 6.
+                Mathematically,
+
+                <p>
+                    \[NoisyRR_i = BeltRR_i + \epsilon_i\]
+                </p>
+                <p>
+                    \[\epsilon_i \sim N(\mu = 0.44, \sigma = 0.35)\]
+                </p>
+            </p>
+
+            </p>
+                where NoisyRR is the noisy respiration data and BeltRR is the respiration rate from the belt. We refer to this
+                noisy respiration data as a proxy to the estimated respiration data. The choice of mean and standard deviation
+                was such that so that the error between the noisy respiration rate and the ground truth respiration rate is 2.1%. A
+                quantile-quantile probability plot confirmed that the respiration data from the belt follows a normal distribution
+                and hence we choose the generate the noise from a normal distribution.
+            <p>
+            
+            <figure>
+                <img src="./static/images/JoulesEye Figures/EE_HR-vs-RR.PNG"
+                  alt="Energy Estimation Heart Rate vs Respiration Rate">
+                <figcaption> Fig. 8. Error Trends in estimation of EE using HR and RR while Cycling and Running
+                </figcaption>
             </figure>
-          </div>
-        </div>
-        <figcaption>Fig. 9: Examples of nested square images used in the task, showing different numbers of squares.
-        </figcaption>
-      </div>
 
-      <h3 class="title is-4">Prompts</h3>
-      <div class="content">
-        <p>
-          We ask each question using the following wording:
-        </p>
-        <ol>
-          <li><em>"How many squares are in the image? Please answer with a number in curly brackets e.g., {10}."</em>
-          </li>
-          <li><em>"Count total number of squares in the image. Answer with only the number in numerical format in curly
-              brackets
-              e.g. {3}."</em></li>
-        </ol>
-        <p>
-          Where {shapes} is either "circles" or "pentagons" depending on the image.
-        </p>
-        <h3 class="title is-4">Groundtruth</h3>
-        <div class="content">
-          <p>
-            Answers are ∈ {2, 3, 4, 5} (random-baseline accuracy: 25%).
-          </p>
-        </div>
+            <p>
+                We compare the estimates from Apple Watch heart rate data and the estimates from estimated respiration rate in
+                Figure 8. For cycling activity, the energy expenditure estimated from the heart rate data are relatively inaccurate
+                as apparent from the noisy data in the lower portion of Figure 8(a). The same trend is not observed in Figure 8(b)
+                when respiration rate is used as a predictor. It is important to note that, for each participant, we changed the
+                demographic information before data collection in the Apple Health app.
+            </p>
 
+        <h3 class="title is-3">Effect of Occlusion</h3>
 
-        <h2 class="title is-3">Results</h2>
-        <p class="mb-4">
-          The following table shows the performance of the four models on the task of counting nested squares.
-        </p>
-        <table class="performance-table results-table">
-          <tr>
-            <th></th>
-            <th>
-              <div class="model-header">
-                <span class="model">GPT-<span class="gpt-green">4o</span></span>
-              </div>
-            </th>
-            <th>
-              <div class="model-header">
-                <span class="model">Gemini-<span class="gemini-blue">1.5</span> Pro</span>
-              </div>
-            </th>
-            <th>
-              <div class="model-header">
-                <span class="model">Sonnet-<span class="sonnet3-brown">3</span></span>
-              </div>
-            </th>
-            <th>
-              <div class="model-header">
-                <span class="model">Sonnet-<span class="sonnet35-brown">3.5</span></span>
-              </div>
-            </th>
-          </tr>
-          <tr>
-            <td>Squares</td>
-            <td class="rnumber">55.83</td>
-            <td class="rnumber">87.08</td>
-            <td class="rnumber">65.00</td>
-            <td class="highlight rnumber">92.08</td>
-          </tr>
-        </table>
+            <p>
+                Figure 9 (a) demonstrates that when three or more frames are consecutively occluded, the respiration rate
+                estimation exhibits a high Mean Absolute Error of 20.1, while one or two frame occlusions result in a significantly
+                lower error rate. The occurrence of prolonged occlusion, lasting three or more frames, leads to the loss of nostril
+                tracking by the Region of Interest (ROI) tracker, causing alterations in the mean intensity signal, as illustrated in
+                Figure 9 (b). As a consequence, this deviation in the intensity signal adversely affects the accuracy of respiration
+                estimation. However, in such instances, we activate the RGB camera to re-establish the tracking of nostrils
+                through landmark detection. By continuously tracking the nostril with the RGB camera, we can successfully
+                retrieve the correct mean intensity signal, as shown in Figure 9 (c).
+            </p>
 
-      </div>
+            <figure>
+                <img src="./static/images/JoulesEye Figures/Effect_of_occlusion.PNG"
+                  alt="Effect of Occlusion">
+                <figcaption> Fig. 9. Impact of Occlusion and RGB-based nostril tracking enhancement.
+                </figcaption>
+            </figure>
 
-      <div>
+        <h3 class="title is-3">Discussion</h3>
 
-        <h2 class="title is-3">Qualitative samples</h2>
-        <div class="container is-max-desktop">
-          <div class="frame">
-            <div class="header">
-              <h2>How many squares are in the image? Please answer with a number in curly brackets e.g. {10}.</h2>
+            <p>
+                According to literature [<a href="https://pubmed.ncbi.nlm.nih.gov/11264757/">12</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/22040049/">13</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/27471202/">17</a>], respiration rate
+                information helps in explaining body composition or adiposity which is an important determiner for EE. Body
+                composition plays a significant role in determining energy expenditure because each type of tissue in the body
+                requires a different amount of energy to maintain. Muscle tissue is more metabolically active than fat tissue,
+                meaning it requires more energy to sustain. To analyse if body composition affects the energy expenditure estimates, we split our data into people with
+                normal and overweight Body Mass Index (BMI). Table 2 shows the MAPE of energy expenditure from Apple
+                Watch and the MAPE of energy expenditure estimates from respiration rate.
+            </p>
+
+            <div style="padding-top:30px; padding-bottom: 30px;">
+                <table>
+                    <caption>Table 2: EE estimates by Apple Watch is higher for people with high Body Mass Index
+                        (BMI) and relatively better for people with normal BMI.</caption>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>All Participants</th>
+                            <th>Participants with Normal BMI</th>
+                            <th>Participants with Overweight BMI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Error (Apple Watch)</b></td>
+                            <td align="center">37.6%</td>
+                            <td align="center">29.7%</td>
+                            <td align="center">51.8%</td>
+                        </tr>
+                        <tr>
+                            <td><b>Error (JoulesEye) with RR</b></td>
+                            <td align="center">5.8%</td>
+                            <td align="center">5.2%</td>
+                            <td align="center">6.9%</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <table class="result-table">
-              <tr>
-                <th></th>
-                <th><img
-                    src="./static/images/NestedSquares/updated_samples/howmany/nested_squares_depth_2_image_1_thickness_4.svg"
-                    alt="Nested Squares 1"></th>
-                <th><img
-                    src="./static/images/NestedSquares/updated_samples/howmany/nested_squares_depth_3_image_3_thickness_3.svg"
-                    alt="Nested Squares 2"></th>
-                <th><img
-                    src="./static/images/NestedSquares/updated_samples/howmany/nested_squares_depth_3_image_8_thickness_4.svg"
-                    alt="Nested Squares 3"></th>
-                <th><img
-                    src="./static/images/NestedSquares/updated_samples/howmany/nested_squares_depth_3_image_9_thickness_2.svg"
-                    alt="Nested Squares 4"></th>
-                <th><img
-                    src="./static/images/NestedSquares/updated_samples/howmany/nested_squares_depth_4_image_5_thickness_2.svg"
-                    alt="Nested Squares 5"></th>
-                <th><img
-                    src="./static/images/NestedSquares/updated_samples/howmany/nested_squares_depth_4_image_9_thickness_4.svg"
-                    alt="Nested Squares 6"></th>
-                <th><img
-                    src="./static/images/NestedSquares/updated_samples/howmany/nested_squares_depth_5_image_7_thickness_3.svg"
-                    alt="Nested Squares 7"></th>
-                <th><img
-                    src="./static/images/NestedSquares/updated_samples/howmany/nested_squares_depth_5_image_10_thickness_2.svg"
-                    alt="Nested Squares 8"></th>
-              </tr>
-              <tr class="light-gray">
-                <th style="text-align: center; vertical-align: middle;"><img src="static/images/chatgpt-icon.svg"
-                    class="model-logo" alt="GPT-4o"></th>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">3</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">3</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">6</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">6</span><span
-                    class="cross">✗</span>
-                </td>
-              </tr>
-              <tr>
-                <td style="text-align: center; vertical-align: middle;"><img src="static/images/google-gemini-icon.svg"
-                    class="model-logo" alt="Gemini-1.5"></td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">2</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">3</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">2</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">3</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">4</span><span
-                    class="cross">✗</span>
-                </td>
-              </tr>
-              <tr class="light-gray">
-                <th style="text-align: center; vertical-align: middle;"><img src="static/images/claude-ai-icon.svg"
-                    class="model-logo" alt="Sonnet-3"></th>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">2</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">4</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">2</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">4</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">4</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">4</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5</span><span
-                    class="check">✓</span>
-                </td>
-              </tr>
-              <tr>
-                <td style="text-align: center; vertical-align: middle;"><img src="static/images/claude-35.png"
-                    class="model-logo" alt="Sonnet-3.5"></td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">2</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">3</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">3</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">3</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">4</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">4</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">4</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5</span><span
-                    class="check">✓</span>
-                </td>
-              </tr>
-            </table>
-            <div class="legend">
-              <div class="legend-item">
-                <img src="static/images/chatgpt-icon.svg" alt="GPT-4o"> <span class="model">GPT-<span
-                    class="gpt-green">4o</span></span>
-              </div>
-              <div class="legend-item">
-                <img src="static/images/google-gemini-icon.svg" alt="Gemini-1.5"> <span class="model">Gemini-<span
-                    class="gemini-blue">1.5</span>
-                  Pro</span>
-              </div>
-              <div class="legend-item">
-                <img src="static/images/claude-ai-icon.svg" alt="Sonnet-3"> <span class="model">Sonnet-<span
-                    class="sonnet3-brown">3</span></span>
-              </div>
-              <div class="legend-item">
-                <img src="static/images/claude-35.png" alt="Sonnet-3"> <span class="model">Sonnet-<span
-                    class="sonnet35-brown">3.5</span></span>
-              </div>
+            
+            <p>
+                Another reason why respiration rate explains the change in EE can be deduced from Figure 10 which shows that
+                the heart rate, respiration rate and EE are well correlated, however the correlation between heart rate and energy
+                expenditure is lower (Pearson Correlation = 0.78) compared to respiration rate and EE (0.93). Figure 10 suggests
+                that high frequency information in the EE signal are captured by the respiration rate and not the heart rate. Heart
+                rate signal is smoother resulting where no frequent changes are observed unlike in respiration rate and EE signal.
+            </p>
+
+            <figure>
+                <img src="./static/images/JoulesEye Figures/Correlation Plot.PNG"
+                  alt="Correlation between Calorie, Respiration Rate and Heart Rate">
+                <figcaption> Fig. 10. Correlation between Calorie, Respiration Rate and Heart Rate.
+                </figcaption>
+            </figure>
+
+        <h3 class="title is-3">Result with Reduced Video Resolution</h3>
+
+            <p>
+                The FLIR Thermal camera needs to be retrofitted with an iPhone and its
+                video recordings are saved in 1440x1080 pixel resolution without access to any raw data. But, for JoulesEye to be
+                practical, we envision the smartwatch might come with a low resolution thermal camera. The primary advantage  of using a low resolution thermal camera is reduced power and privacy concerns. As shown in Figure 11-b), we
+                designed a 32x24 pixel resolution MLX90640 based thermal imaging system. It also has a RGB camera beside it.
+                The RGB camera helps initially locate the nostrils and thereafter, the CSRT algorithm keeps track of the nostril. 
+                We evaluated our low-resolution thermal system for respiration rate
+                detection on 5 participants. These participants were asked to run on a treadmill at 4 miles per hour for a minute
+                with the constraint that they look into the JoulesEye smartwatch thermal camera by extending their hand, akin
+                to looking into a smartwatch.
+            </p>
+
+            <figure>
+                <img src="./static/images/JoulesEye Figures/JoulesEye Smartwatch.PNG"
+                  alt="JouleEye Smartwatch">
+                <figcaption> Fig. 11. In a)
+                    we show what our future smartwatches can look like. In (b) we show our first prototype wristband thermal camera which is
+                    composed of a low resolution thermal camera and a RGB camera.
+                </figcaption>
+            </figure>
+
+            <p>
+                When compared to ground truth respiration rate data collected via the belt, we
+                observed that the MAPE of estimating respiration rate is 8.1%. This high error arose because we were not able to
+                achieve a high frame rate for the thermal camera. The current frame rate is 3 frames per second which is fine for
+                slow or no movements but it causes a dithering effect when there is too much movement from the participant.
+                We repeated the procedure (discussed earlier) of adding noise  to respiration belt data so that the new
+                data has an error of 8.1%. Using this data we got an energy expenditure estimate of 15.4%. While 15.4% is higher
+                compared to the estimates from the watch’s heart rate data alone (using our algorithms and not Apple Watch)
+                which is 12% (Figure 7), combining this respiration rate data with heart rate data reduces the error to 10.1%. This
+                shows that even though the frame rate of the wristband prototype is low, leveraging thermal data and heart rate
+                data from smartwatch can estimate energy expenditure accurately when compared to heart rate data alone. The
+                results are summarised in Table 3.
+            </p>
+
+            <div style="padding-bottom: 40px; padding-top: 40px">
+                <caption>
+                    Table 3. Estimation of EE using a low-resolution thermal camera in combination with heart rate data yields an error of 10.1%,
+                    showcasing its superiority over using heart rate data alone. These results demonstrate that even with a very low-resolution
+                    thermal camera, EE estimation can be enhanced. 
+                </caption>
+                <div class="table-container">
+                    <!-- Table (a) -->
+                    
+                    <table>
+                        <caption>Table (a): The error (MAPE) in RR estimation varies with changes in thermal video resolution.</caption>
+                        <thead>
+                            <tr>
+                                <th>Resolution</th>
+                                <th>Error on estimated RR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1080p thermal camera</td>
+                                <td>2.1%</td>
+                            </tr>
+                            <tr>
+                                <td>24p thermal camera</td>
+                                <td>8.1%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                
+                    <!-- Table (b) -->
+                    <table>
+                        <caption>Table (b): Reduced thermal video resolution leads to increased error (MAPE) in EE estimation.</caption>
+                        <thead>
+                            <tr>
+                                <th>Input Data</th>
+                                <th>Error on estimated EE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>RR from 1080p thermal</td>
+                                <td>5.4%</td>
+                            </tr>
+                            <tr>
+                                <td>RR from 24p thermal</td>
+                                <td>15.4%</td>
+                            </tr>
+                            <tr>
+                                <td>RR from 1080p thermal and HR</td>
+                                <td>5.3%</td>
+                            </tr>
+                            <tr>
+                                <td>RR from 24p thermal and HR</td>
+                                <td>10.1%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-          </div>
-          <figcaption>Fig. 10: Only <span class="model">Sonnet-<span class="sonnet35-brown">3.5</span></span> can count
-            the
-            squares in a majority of the images.</figcaption>
-        </div>
+            
+        <h3 class="title is-3">Impact of Changing Time Resolution</h3>
+
+        <p>
+            Our result of JoulesEye shown in Figure 7 is based on input data sampling interval of 90𝑠, where 60𝑠 is required
+            to estimate the first sample of volume and further 30𝑠 more data is required to estimate the first sample of
+            VO<sub>2</sub>. Figure 14 shows how the percentage error changes when we gradually decrease the input chunk length  of respiration rate estimation.
+            We observe that
+            using 15𝑠 of respiration data is enough to predict energy expenditure with a better performance as compared to
+            heart rate alone. This implies that after exercising a user will have to look into the watch for 15𝑠 + 30𝑠 for her
+            energy expenditure to be predicted by the model. We believe that work needs to be done in order to reduce this
+            interval further towards making the system even more practical.
+        </p>
+
+        <figure>
+            <img src="./static/images/JoulesEye Figures/Time_resolution.PNG"
+              alt="Impact of changing time resolution">
+            <figcaption> Fig. 12.  Using 60s of respiration rate data gives us the best performance on estimation energy expenditure. 30s of respiration
+                data is enough to predict energy expenditure with a better performance compared to heart rate alone.
+            </figcaption>
+        </figure>
       </div>
+
+    </div>
   </section>
   <!-- TASK 5 Ends -->
 
-
-
-
   <hr>
+
+
   <!-- TASK 6 Begins -->
   <section id="task6" class="section">
     <div class="container is-max-desktop">
 
-      <h2 class="title is-2">Task 6: Counting the rows and columns of a grid <img
-          src="static/images/logo/grid-3x4-svg.svg" alt="Two intersecting lines" class="task-icon"></h2>
+      <h2 class="title is-2">Limitations and Future Work</h2>
 
 
-      <div class="content">
-        <p>
-          The results from prior tasks show VLMs cannot always count shapes that are overlapping (Task 4) or nested
-          (Task 5).
-          What about adjacent shapes? Here, we tile up shapes (specifically, squares) into a grid and challenge VLMs to
-          count—a
-          task that is supposedly simple to VLMs given their remarkable performance (≥ 90% accuracy) on DocVQA, which
-          includes
-          many questions with tables.
-          To simplify the task, we ask models to count the number of rows and columns in a given table.
-        </p>
+        <div class="content has-text-justified">
+            <p>
+                We now discuss the limitations of our present work and plans for addressing them in the future.   
 
-        <h3 class="title is-4">Images</h3>
-        <p>
-          A grid may have N×N, N×N', or N'×N cells, where N∈{3, 4, 5, 6, 7, 8, 9} and N' = N + 1.
-          Each grid is rendered with two different line-thicknesses on a canvas of size C×C where C∈{500, 1250, 2000}px.
-          Besides empty grids, we also replicate the procedure to make grids contain text (which is more common in
-          real-world
-          tables) where each cell contains a single random word.
-          Two versions combined have 2×222 = 444 images.
-        </p>
-        <div class="columns is-multiline is-mobile">
-          <div class="column is-3">
-            <figure class="image">
-              <img src="./static/images/CountGridRowColumns/GridExamples/text_grid_3x3_2000_10.svg" alt="Text grid 3x3">
-              <figcaption>Text grid (3x3)</figcaption>
-            </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image">
-              <img src="./static/images/CountGridRowColumns/GridExamples/text_grid_3x4_2000_10.svg" alt="Text grid 3x4">
-              <figcaption>Text grid (3x4)</figcaption>
-            </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image">
-              <img src="./static/images/CountGridRowColumns/GridExamples/blank_grid_4x4_2000_20.svg"
-                alt="Empty grid 4x4">
-              <figcaption>Empty grid (4x4)</figcaption>
-            </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image">
-              <img src="./static/images/CountGridRowColumns/GridExamples/blank_grid_4x5_2000_20.svg"
-                alt="Empty grid 4x5">
-              <figcaption>Empty grid (4x5)</figcaption>
-            </figure>
-          </div>
+                <ul>
+                    <li><b>Smartphone/Smartwatch Integration:</b>  Our objective is to retrofit a smartphone/smartwatch with a low
+                        resolution thermal camera <a href="https://na.industrial.panasonic.com/products/sensors/sensors-automotive-industrial-applications/lineup/grid-eye-infrared-array-sensor">[15]</a>. Although we prototyped JoulesEye,
+                        engineering challenges to obtain higher frame rate remains an unsolved problem. Our initial result are
+                        promising, but our system is not yet real time, meaning the video processing and deep learning
+                        pipeline needs to be run after data recording.</li>
+                    
+                    <li><b>Usability of Smartphone Prototype:</b> Although we developed a prototype smartwatch for JoulesEye, we did
+                        not conduct any usability study with it. Currently, performing a usability study would not yield desired
+                        results, as each participant would need to continuously look into the watch for at least 45 seconds to 
+                        obtain any energy expenditure estimate. Such extended duration for glancing
+                        at the watch is impractical. Further research is required to significantly reduce this time interval, allowing
+                        a quick glance at the watch to provide accurate energy expenditure values.</li>
+                    
+                    <li><b>Uncertainty in Estimation:</b> Smartphone/Smartwatch Integration:Smartphone/Smartwatch Integration: Our current methods for estimating energy expenditure give a point estimate.
+                        In the future, we plan to incorporate uncertainty in our estimation. Incorporating such uncertainty will
+                        be particularly important as various sensing modalities will be affected differently owing to differences
+                        in external conditions. As an example, the algorithms for heart rate estimation will likely not suffer even
+                        when the surroundings are dark, but the algorithms to estimate nostril position from RGB will suffer. Thus,
+                        in the future, we plan to implement a principled uncertainty based approach, where uncertainties in the
+                        different parts of the pipeline (estimating respiration rate, temperature; estimating energy expenditure
+                        using machine learning model) are considered while estimating energy expenditure.</li>
+                </ul>
+
+            </p>
         </div>
-        <figcaption>Fig. 9: Examples of grid images used in the task, showing text-filled and empty grids with various
-          dimensions.</figcaption>
-      </div>
+    </div>
 
-      <h3 class="title is-4">Prompts</h3>
-      <div class="content">
-        <p>
-          We ask each question using two different wordings:
-        </p>
-        <ol>
-          <li><em>"Count the number of rows and columns and answer with numbers in curly brackets. For example, rows={5}
-              columns={6}"</em></li>
-          <li><em>"How many rows and columns are in the table? Answer with only the numbers in a pair (row, column),
-              e.g.,
-              (5,6)"</em></li>
-        </ol>
-
-        <h3 class="title is-4">Groundtruth</h3>
-        <div class="content">
-          <p>
-            Answers include both the number of rows and columns. An answer is correct when both column and row counts
-            are
-            correctly predicted.
-          </p>
-        </div>
-
-        <h2 class="title is-3">Results</h2>
-        <p class="mb-4">
-          The following table shows the performance of the four models on the task of counting rows and columns in
-          grids.
-        </p>
-        <table class="performance-table results-table">
-          <tr>
-            <th>Grid type</th>
-            <th>
-              <div class="model-header">
-                <span class="model">GPT-<span class="gpt-green">4o</span></span>
-              </div>
-            </th>
-            <th>
-              <div class="model-header">
-                <span class="model">Gemini-<span class="gemini-blue">1.5</span> Pro</span>
-              </div>
-            </th>
-            <th>
-              <div class="model-header">
-                <span class="model">Sonnet-<span class="sonnet3-brown">3</span></span>
-              </div>
-            </th>
-            <th>
-              <div class="model-header">
-                <span class="model">Sonnet-<span class="sonnet35-brown">3.5</span></span>
-              </div>
-            </th>
-            <th style="text-align: center;">Mean</th>
-          </tr>
-          <tr>
-            <td>Empty</td>
-            <td class="rnumber">26.13</td>
-            <td class="rnumber">26.51</td>
-            <td class="rnumber">25.00</td>
-            <td class="rnumber">59.84</td>
-            <td class="rnumber">34.37</td>
-          </tr>
-          <tr>
-            <td>Text</td>
-            <td class="highlight rnumber">53.03</td>
-            <td class="highlight rnumber">52.27</td>
-            <td class="highlight rnumber">47.34</td>
-            <td class="highlight rnumber">88.68</td>
-            <td class="highlight rnumber">60.33</td>
-          </tr>
-          <tr>
-            <td><strong>Mean</strong></td>
-            <td class="rnumber">39.58</td>
-            <td class="rnumber">39.39</td>
-            <td class="rnumber">36.17</td>
-            <td class="rnumber">74.26</td>
-            <td class="rnumber">47.35</td>
-          </tr>
-        </table>
-
-      </div>
-
-
-
-      <div class="spacer"></div>
-
-      <div>
-        <div class="container is-max-desktop">
-          <div class="frame">
-            <div class="header">
-              <h2>Count the number of rows and columns and answer with numbers in curly brackets. For example,
-                rows={5}
-                columns={6}.</h2>
-            </div>
-            <table class="result-table grid-table">
-              <tr>
-                <th></th>
-                <th><img src="./static/images/CountGridRowColumns/GridExamples/blank_grid_4x5_2000_20.svg" alt="Grid 1">
-                </th>
-                <th><img src="./static/images/CountGridRowColumns/GridExamples/blank_grid_6x7_2000_20.svg" alt="Grid 2">
-                </th>
-                <th><img src="./static/images/CountGridRowColumns/GridExamples/blank_grid_7x6_2000_20.svg" alt="Grid 3">
-                </th>
-                <th><img src="./static/images/CountGridRowColumns/GridExamples/blank_grid_8x7_1250_20.svg" alt="Grid 4">
-                </th>
-                <th><img src="./static/images/CountGridRowColumns/GridExamples/text_grid_3x4_500_20.svg" alt="Grid 5">
-                </th>
-                <th><img src="./static/images/CountGridRowColumns/GridExamples/text_grid_6x7_500_10.svg" alt="Grid 6">
-                </th>
-              </tr>
-              <tr>
-                <th style="text-align: center;">GT</th>
-                <td style="text-align: center;">4×5</td>
-                <td style="text-align: center;">6×7</td>
-                <td style="text-align: center;">7×6</td>
-                <td style="text-align: center;">8×7</td>
-                <td style="text-align: center;">3×4</td>
-                <td style="text-align: center;">6×7</td>
-              </tr>
-              <tr class="light-gray">
-                <th style="text-align: center; vertical-align: middle;"><img src="static/images/chatgpt-icon.svg"
-                    class="model-logo" alt="GPT-4o"></th>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">4×4</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">6×6</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">7×7</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">6×6</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">3×4</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">7×7</span><span
-                    class="cross">✗</span>
-                </td>
-              </tr>
-              <tr>
-                <td style="text-align: center; vertical-align: middle;"><img src="static/images/google-gemini-icon.svg"
-                    class="model-logo" alt="Gemini-1.5"></td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5×5</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">6×6</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">7×7</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">10×10</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">3×4</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">7×8</span><span
-                    class="cross">✗</span>
-                </td>
-              </tr>
-              <tr class="light-gray">
-                <th style="text-align: center; vertical-align: middle;"><img src="static/images/claude-ai-icon.svg"
-                    class="model-logo" alt="Sonnet-3"></th>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5×5</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">7×8</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">6×6</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">9×9</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">4×4</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">7×7</span><span
-                    class="cross">✗</span>
-                </td>
-              </tr>
-              <tr>
-                <td style="text-align: center; vertical-align: middle;"><img src="static/images/claude-35.png"
-                    class="model-logo" alt="Sonnet-3.5"></td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">4×5</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">6×7</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">7×7</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">8×7</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">3×4</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">7×7</span><span
-                    class="cross">✗</span>
-                </td>
-              </tr>
-            </table>
-            <div class="legend">
-              <div class="legend-item">
-                <img src="static/images/chatgpt-icon.svg" alt="GPT-4o"> <span class="model">GPT-<span
-                    class="gpt-green">4o</span></span>
-              </div>
-              <div class="legend-item">
-                <img src="static/images/google-gemini-icon.svg" alt="Gemini-1.5"> <span class="model">Gemini-<span
-                    class="gemini-blue">1.5</span>
-                  Pro</span>
-              </div>
-              <div class="legend-item">
-                <img src="static/images/claude-ai-icon.svg" alt="Sonnet-3"> <span class="model">Sonnet-<span
-                    class="sonnet3-brown">3</span></span>
-              </div>
-              <div class="legend-item">
-                <img src="static/images/claude-35.png" alt="Sonnet-3"> <span class="model">Sonnet-<span
-                    class="sonnet35-brown">3.5</span></span>
-              </div>
-            </div>
-          </div>
-          <figcaption>Fig. 12: When text is included in the cells of the grid, the performance of all VLMs improves,
-            especially
-            <span class="model">Sonnet-<span class="sonnet35-brown">3.5</span></span>.
-          </figcaption>
-        </div>
-
-      </div>
   </section>
   <!-- TASK 6 Ends -->
 
-
-  <hr>
-  <!-- TASK 7 Begins -->
-  <section id="task7" class="section">
-    <div class="container is-max-desktop">
-
-      <h2 class="title is-2">Task 7: Following single-colored paths <img src="static/images/logo/subway-map-svg.svg"
-          alt="Two intersecting lines" class="task-icon"></h2>
-
-
-
-      <div class="content">
-        <p>
-          It is important for VLMs to be able to follow paths in order to read maps or charts, interpret graphs, and
-          understand
-          user notations (e.g., arrows) in input images. To assess path-following capability, this task asks models to
-          count the
-          unique-color paths between two given stations in a simplified subway map. This is another easy-to-humans task
-          that
-          challenges VLMs significantly.
-        </p>
-
-        <h3 class="title is-4">Images</h3>
-        <p>
-          We create each subway map on an image of size C×C, where C ∈ {512, 1024}px. We write 4 station names (A, B, C,
-          D) at 4
-          fixed coordinates. We divide the canvas into an invisible grid of 18×18 cells and initialize 3 path-starting
-          points
-          C/18px away from each station. We draw a path, using the depth-first search algorithm starting from a random
-          station
-          and a random starting point, where a valid move is one cell in any direction: North, south, east or west. We
-          repeat
-          the process so that each station has exactly N ∈ {1, 2, 3} outgoing paths, for a total of 180 maps.
-        </p>
-
-        <div class="columns is-multiline is-mobile">
-          <div class="column is-3">
-            <figure class="image">
-              <img
-                src="./static/images/SubwayConnections/pixels_512_linewidth_10_path_1_921cbd8a-9833-433a-9104-9b568bf10ac7.svg"
-                alt="Station with 1 path">
-              <figcaption>1 path, 10px width</figcaption>
-            </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image">
-              <img
-                src="./static/images/SubwayConnections/pixels_1024_linewidth_20_path_2_b982336c-68f6-4fce-9f7b-81b789b7c60a.svg"
-                alt="Station with 2 paths">
-              <figcaption>2 paths, 20px width</figcaption>
-            </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image">
-              <img
-                src="./static/images/SubwayConnections/pixels_1024_linewidth_20_path_2_b982336c-68f6-4fce-9f7b-81b789b7c60a.svg"
-                alt="Station with 2 paths">
-              <figcaption>2 paths, 20px width</figcaption>
-            </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image">
-              <img
-                src="./static/images/SubwayConnections/pixels_1024_linewidth_10_path_3_c06eac36-a4d1-405f-b445-9b9790b0366c.svg"
-                alt="Station with 3 paths">
-              <figcaption>3 paths, 10px width</figcaption>
-            </figure>
-          </div>
-        </div>
-        <figcaption>Fig. 14: Examples of subway map images used in the task, showing different numbers of paths and
-          variations
-          in path thickness.</figcaption>
-      </div>
-
-      <h3 class="title is-4">Prompts</h3>
-      <div class="content">
-        <p>
-          We ask each question using two different wordings:
-        </p>
-        <ol>
-          <li><em>"How many single-colored paths go from A to C? Answer with a number in curly brackets, e.g., {3}"</em>
-          </li>
-          <li><em>"Count the one-colored routes that go from A to C. Answer with a number in curly brackets, e.g.,
-              {3}."</em>
-          </li>
-        </ol>
-
-        <h3 class="title is-4">Groundtruth</h3>
-        <div class="content">
-          <p>
-            Answers are ∈ {0, 1, 2, 3} (random-baseline accuracy: 25%).
-          </p>
-        </div>
-
-        <h2 class="title is-3">Results</h2>
-        <p class="mb-4">
-          The following table shows the performance of the four models on the task of counting single-colored paths
-          between
-          stations.
-        </p>
-        <table class="performance-table results-table">
-          <tr>
-            <th>Paths</th>
-            <th>
-              <div class="model-header">
-                <span class="model">GPT-<span class="gpt-green">4o</span></span>
-              </div>
-            </th>
-            <th>
-              <div class="model-header">
-                <span class="model">Gemini-<span class="gemini-blue">1.5</span> Pro</span>
-              </div>
-            </th>
-            <th>
-              <div class="model-header">
-                <span class="model">Sonnet-<span class="sonnet3-brown">3</span></span>
-              </div>
-            </th>
-            <th>
-              <div class="model-header">
-                <span class="model">Sonnet-<span class="sonnet35-brown">3.5</span></span>
-              </div>
-            </th>
-            <th style="text-align: center;">Mean</th>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td class="rnumber">56.25</td>
-            <td class="rnumber">64.58</td>
-            <td class="rnumber">22.91</td>
-            <td class="highlight rnumber">92.91</td>
-            <td class="rnumber">59.16</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td class="rnumber">47.44</td>
-            <td class="rnumber">38.35</td>
-            <td class="rnumber">28.69</td>
-            <td class="highlight rnumber">48.29</td>
-            <td class="rnumber">40.69</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td class="highlight rnumber">40.00</td>
-            <td class="rnumber">21.87</td>
-            <td class="rnumber">18.12</td>
-            <td class="rnumber">25.41</td>
-            <td class="rnumber">26.35</td>
-          </tr>
-          <tr>
-            <td><strong>Mean</strong></td>
-            <td class="rnumber">47.89</td>
-            <td class="rnumber">41.60</td>
-            <td class="rnumber">23.24</td>
-            <td class="highlight rnumber">55.53</td>
-            <td class="rnumber">42.06</td>
-          </tr>
-        </table>
-      </div>
-      <div>
-        <h2 class="title is-3">Qualitative samples</h2>
-        <div class="container is-max-desktop">
-          <div class="frame">
-            <div class="header">
-              <h2>How many single-color paths go from A to D? Answer with a number in curly brackets e.g. {3}</h2>
-            </div>
-            <table class="result-table">
-              <tr>
-                <th></th>
-                <th><img
-                    src="./static/images/SubwayConnections/final_qual/pixels_512_linewidth_10_path_1_4a121c1e-8b86-4f23-a152-260189e8504d.svg"
-                    alt="Subway Map 1"></th>
-                <th><img
-                    src="./static/images/SubwayConnections/final_qual/pixels_512_linewidth_20_path_1_c2e9c24b-1410-44fb-8b6d-bea89c32baf1.svg"
-                    alt="Subway Map 2"></th>
-                <th><img
-                    src="./static/images/SubwayConnections/appendix_figs/pixels_512_linewidth_10_path_2_97592c8d-7d89-41e5-ba2f-f03bacd4bd21.svg"
-                    alt="Subway Map 3"></th>
-                <th><img
-                    src="./static/images/SubwayConnections/appendix_figs/pixels_512_linewidth_20_path_2_931b8867-3028-48fc-a81f-f417f9261d9d.svg"
-                    alt="Subway Map 4"></th>
-                <th><img
-                    src="./static/images/SubwayConnections/appendix_figs/pixels_1024_linewidth_20_path_3_79870125-c92a-4780-81b3-aab8f8d7c4c6.svg"
-                    alt="Subway Map 5"></th>
-                <th><img
-                    src="./static/images/SubwayConnections/appendix_figs/pixels_512_linewidth_20_path_3_941abb65-fa92-45ac-9ecc-d155646cbbe6.svg"
-                    alt="Subway Map 6"></th>
-              </tr>
-              <tr class="light-gray">
-                <th style="text-align: center; vertical-align: middle;"><img src="static/images/chatgpt-icon.svg"
-                    class="model-logo" alt="GPT-4o"></th>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">2</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">0</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">2</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">3</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">3</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">1</span><span
-                    class="check">✓</span>
-                </td>
-              </tr>
-              <tr>
-                <td style="text-align: center; vertical-align: middle;"><img src="static/images/google-gemini-icon.svg"
-                    class="model-logo" alt="Gemini-1.5"></td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">2</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">2</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">4</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">1</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">2</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">5</span><span
-                    class="cross">✗</span>
-                </td>
-              </tr>
-              <tr class="light-gray">
-                <th style="text-align: center; vertical-align: middle;"><img src="static/images/claude-ai-icon.svg"
-                    class="model-logo" alt="Sonnet-3"></th>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">2</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">2</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">3</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">2</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">3</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">3</span><span
-                    class="cross">✗</span>
-                </td>
-              </tr>
-              <tr>
-                <td style="text-align: center; vertical-align: middle;"><img src="static/images/claude-35.png"
-                    class="model-logo" alt="Sonnet-3.5"></td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">1</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">1</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">3</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">3</span><span
-                    class="cross">✗</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">2</span><span
-                    class="check">✓</span>
-                </td>
-                <td style="text-align: center; vertical-align: middle;"><span class="label">1</span><span
-                    class="check">✓</span>
-                </td>
-              </tr>
-            </table>
-            <div class="legend">
-              <div class="legend-item">
-                <img src="static/images/chatgpt-icon.svg" alt="GPT-4o"> <span class="model">GPT-<span
-                    class="gpt-green">4o</span></span>
-              </div>
-              <div class="legend-item">
-                <img src="static/images/google-gemini-icon.svg" alt="Gemini-1.5"> <span class="model">Gemini-<span
-                    class="gemini-blue">1.5</span>
-                  Pro</span>
-              </div>
-              <div class="legend-item">
-                <img src="static/images/claude-ai-icon.svg" alt="Sonnet-3"> <span class="model">Sonnet-<span
-                    class="sonnet3-brown">3</span></span>
-              </div>
-              <div class="legend-item">
-                <img src="static/images/claude-35.png" alt="Sonnet-3"> <span class="model">Sonnet-<span
-                    class="sonnet35-brown">3.5</span></span>
-              </div>
-            </div>
-          </div>
-          <figcaption>Fig. 13: Some VLMs (<span class="model">Gemini-<span class="gemini-blue">1.5</span></span>,
-            <span class="model">Sonnet-<span class="sonnet3-brown">3</span></span>)
-            surprisingly fail in even extremely easy cases (leftmost).
-            As the
-            number of paths exiting each station increases, VLMs tend to perform worse.
-          </figcaption>
-
-        </div>
-      </div>
-  </section>
-  <!-- TASK 7 Ends -->
 
 
 
